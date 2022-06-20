@@ -1,0 +1,82 @@
+html, body {
+    min-width: 800px;
+    min-height: 800px;
+}
+
+.main-container {
+    height: 100%;
+    width: 100%;
+}
+
+.login-main-container {
+    position: absolute;
+    margin-left: -225px;
+    margin-top: -280px;
+    left: 50%;
+    top: 50%;
+    width: 450px;
+    height: 560px;
+    box-shadow: 0 20px 50px 0 hsl(0deg 0% 64% / 10%);
+    padding: 40px 45px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.login-left-container {
+    width: 20%;
+    height: 100%;
+    background-image: url("../res/mi/login/login-left.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50%;
+    float: left;
+    display:inline-block;
+}
+
+.login-right-container{
+    width: 79%;
+    height: 100%;
+    float: right;
+    display:inline-block;
+    position: relative;
+}
+
+.login-right-top-left{
+    width: 30%;
+    height: 100px;
+    padding-top: 20px;
+    float: left;
+}
+
+.login-right-top-right{
+    width: 70%;
+    height: 100px;
+    float: right;
+    text-align: right;
+}
+
+.login-right-top-right ul{
+    padding-top: 20px;
+}
+
+.login-right-top-right ul li{
+    float: right;
+    margin-right: 30px;
+    color: #838383;
+}
+
+@media screen and (max-width: 900px) {
+    .login-left-container {
+        display: none;
+    }
+
+    .login-right-container{
+        width: 100%;
+        height: 100%;
+        float: right;
+        display:inline-block;
+        position: relative;
+        min-width: 600px;
+    }
+
+}

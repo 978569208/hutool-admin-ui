@@ -16,5 +16,31 @@
       "title": "主页二",
       "jump": "home/homepage2"
     }]
+  }, {
+    "title": "页面",
+    "icon": "layui-icon-home",
+    "list": [{
+      "name": "homepage1",
+      "title": "小米",
+      "jump": "/",
+      "list": [{
+        "name": "mi-login",
+        "title": "小米登录页面",
+        "jump": "mi/login"
+      }, {
+        "name": "mi-main",
+        "title": "小米主页",
+        "jump": "mi/main"
+      }]
+    }, {
+      "name": "wyy-music",
+      "title": "网易云",
+      "jump": "/",
+      "list": [{
+        "name": "wyy-music",
+        "title": "网易云音乐主页",
+        "jump": "wy-music/main"
+      }]
+    }]
   }]
 }

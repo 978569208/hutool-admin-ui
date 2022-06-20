@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<script type="text/html" template>
+        <link rel="stylesheet" href="{{ layui.setter.base }}style/mi/login.css?v={{ layui.admin.v }}-1" media="all">
+</script>
+
+<style>
+    .layui-tab-brief>.layui-tab-title {
+        color: #bbbbbb;
+        font-weight: 500;
+    }
+
+    .layui-tab-brief>.layui-tab-title .layui-this {
+        color: #333333;
+    }
+
+    .layui-tab-brief>.layui-tab-more li.layui-this:after,
+    .layui-tab-brief>.layui-tab-title .layui-this:after {
+        border: none;
+        border-radius: 0;
+        border-bottom: 4px solid #ff5c00;
+    }
+
+    .layui-tab-title,
+    .layui-tab-title .layui-this:after {
+        border: none;
+    }
+
+    .input-select {
+        background-position: 50%;
+        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAMAAAANIilAAAAATlBMVEUAAAD/aQD/bAD/awD/agD/aQD/aQD/bAD/aQD/////28L/dBP/+fb/zav/9Oz/5NL/omL/mFD/vI3/jT3/hjD/7OD/xJv/s3//rHP/fSP7xfatAAAACHRSTlMA8xts2babTk78UQYAAAENSURBVEjH7dfNDoIwEATgtvy4balQUYH3f1FtxSw3y2yMHpj7l411QnbVGlM1taaC6LqpjNrGtLQr7YafNO2MPr1tRUCqdS5BybONxrBOv7slMK1ShuAYfi3kzRocN6rGca00jrUiQQ78JexD5zyKnbX2DuJgn3EYvtuUAcJTthdC8JBtIATHbB0heOyS7T2Cr+dkbx4pib8le16Qhvk+2e5aXs85DFyslFje7Yn/08Dl+Ix52szFmmkHvmQSuVilmEd3IxerGPMTc7H2YFpyMbhYpZhrxcUqx1zoXCwEU3wVC8MUezf+xaf3wL/HkoVGtEqJljjR+ihaXCUrs3BZx88E6YGCn0byoww/Bx8vXG8Zm5KImgAAAABJRU5ErkJggg==);
+        background-size: cover;
+        width: 23px !important;
+        height: 23px !important;
+    }
+
+    .input-select:hover {
+        border: none !important;
+    }
+
+    .input-checkbox {
+        position: absolute;
+        display: inline-block;
+        left: 0;
+        width: 23px;
+        height: 23px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+
+    input-check-opacity {
+        opacity: 0 !important;
+    }
+
+    .input-checkbox:hover {
+        width: 17px;
+        height: 17px;
+        border: 3px solid #ff5c00;
+    }
+
+    .mi-button {
+        background-color: #ff5c00;
+        color: #fff;
+        height: 60px;
+        border-radius: 4px;
+        font-size: 18px;
+        opacity: .4;
+    }
+
+    .mi-button:hover {
+        background-color: #ff7e29;
+        opacity: .4;
+    }
+
+    .other-login {
+        margin-top: 20px;
+    }
+
+    .other-login li {
+        float: left;
+        margin: 20px;
+    }
+
+    .other-login li:first-child {
+        float: left;
+        margin-left: 80px;
+    }
+
+    .other-login i {
+        font-size: 45px;
+        cursor: pointer;
+    }
+
+    #language-txt:hover {
+        color: #ff7e29;
+    }
+
+    .language-hover:hover {
+        background-color: #bbbbbb;
+    }
+
+    #right-top {
+        width: 30px;
+        height: 30px;
+        transform: translateZ(0);
+        border: 20px solid #ff5c00;
+        border-bottom-color: rgba(0, 0, 0, 0);
+        border-left-color: rgba(0, 0, 0, 0);
+        opacity: .4;
+        border-radius: 0px 10px 0px 0px;
+        cursor: pointer;
+    }
+
+    #right-top:hover {
+        opacity: 100%;
+    }
+
+    #right-bottom {
+        transform: rotate(135deg);
+        border: 48px solid white;
+        border-top-color: rgba(0, 0, 0, 0);
+        border-bottom-color: rgba(0, 0, 0, 0);
+        z-index: 1000;
+        border-right: none;
+    }
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <title>小米账号 - 登录</title>
+</head>
+
+<body id="login-body">
+
+    <div class="main-container">
+        <div class="login-left-container">
+
+        </div>
+        <div class="login-right-container">
+            <div class="login-right-top-left">
+
+                <div style="height: 45px;line-height: 45px;float: left">
+                    <script type="text/html" template>
+                        <img src="{{ layui.setter.base }}style/res/mi/login/logo-mi2.png"
+                            style="width: 45px;height: 45px;border-radius: 15px">
+                    </script>
+                </div>
+                <div style="height: 45px;line-height: 45px;float: left;margin-left: 10px">
+                    <span style="font-size: 30px;font-weight: 500">小米账号</span>
+                </div>
+
+            </div>
+
+            <div class="login-right-top-right">
+                <ul>
+                    <li id="language" style="cursor: pointer">
+                        <div style="height: 30px;width: 100px">
+                            <span id="language-txt">中文(简体)<span id="icon" style="margin-left: 5px"><i
+                                        class="layui-icon layui-icon-down"></i></span></span>
+                        </div>
+                        <div id="language_list"
+                            style="z-index: 9999;display: none;width: 100px;position: absolute;text-align: center;right: 20px;top: 50px;box-shadow:0 5px 29px 0 hsla(0,0%,63.5%,.2);background-color:#fff;border-radius:2px;">
+                            <div style="height: 50px;line-height: 50px;cursor: pointer;" class="language-hover">中文(繁体)
+                            </div>
+                            <div style="height: 50px;line-height: 50px;margin-top: 10px;cursor: pointer;"
+                                class="language-hover">English
+                            </div>
+                        </div>
+                    </li>
+                    <li style="margin-right: 0px">|</li>
+                    <li style="margin-right: 20px">帮助中心</li>
+                    <li>隐私政策</li>
+                    <li>用户协议</li>
+                </ul>
+            </div>
+
+            <div class="login-main-container">
+                <div id="right-top" style="color: white;position: absolute;top: 0;right: 0">
+                    <script type="text/html" template>
+                        <img id="right-top-img" src="{{ layui.setter.base }}style/res/mi/login/code.png"
+                        style="width: 44px;height: 44px;background-color: #ff5c00;margin-top: -15px">
+                    </script>
+
+                </div>
+
+                <div id="right-bottom" style="color: white;position: absolute;top: 5px;right: 28px">
+
+                </div>
+
+                <div style="width: 100%;height: 100%;position: relative">
+                    <div class="layui-tab layui-tab-brief" style="margin-top: 20px;" lay-filter="docDemoTabBrief">
+                        <ul class="layui-tab-title">
+                            <li class="layui-this" style="font-size: 22px;">登陆</li>
+                            <li style="font-size: 22px;">注册</li>
+                        </ul>
+                        <div class="layui-tab-content" style="height: 100px;">
+                            <div class="layui-tab-item layui-show">
+                                <input type="text" class="layui-input" placeholder="邮箱/手机号/小米ID"
+                                    style="padding: 30px 20px 30px 20px;height: 60px;margin-bottom: 10px;margin-top: 20px">
+
+                                <input type="password" class="layui-input" placeholder="密码"
+                                    style="padding: 30px 20px 30px 20px;height: 60px;margin-bottom: 20px" />
+
+                                <div class="layui-input-block"
+                                    style="color: #bbbbbb;margin-left: 0px;position: relative;margin-bottom: 20px">
+                                    <input type="checkbox" id="isRead"
+                                        style="zoom: 180%;border: 1px solid #ff5c00;float: left">
+                                    <span id="isCheck" class="input-checkbox"></span>
+                                    <label for="isRead" style="margin-left: 10px;display: inline-block;margin-top: 6px">
+                                        已阅读并同意小米帐号 <span style="color:#333333;">用户协议</span> 和 <span
+                                            style="color:#333333;">隐私政策</span>
+                                    </label>
+                                </div>
+
+                                <button id="login-btn" type="button" class="layui-btn layui-btn-fluid mi-button"
+                                    style="">
+                                    登录
+                                </button>
+                                <div style="margin-top: 10px">
+                                    <div
+                                        style="width: 40%;text-align: left;float: left;color: #ff5c00;cursor: pointer;font-size: 19px">
+                                        忘记密码?
+                                    </div>
+                                    <div
+                                        style="width: 40%;text-align: right;float: right;color: #ff5c00;cursor: pointer;font-size: 19px">
+                                        手机号登录
+                                    </div>
+                                </div>
+                                <div style="margin-top: 10px">
+                                    <div
+                                        style="width: 100%;text-align: center;float: left;color: #aaa;;font-size: 20px;font-weight: 400">
+                                        其他登录方式
+                                    </div>
+                                </div>
+                                <div class="other-login">
+                                    <ul>
+                                        <li><a><i class="layui-icon layui-icon-rmb" style="color: #1989fa"></i></a></li>
+                                        <li><a><i class="layui-icon layui-icon-login-wechat"
+                                                    style="color: #50b674"></i></a>
+                                        </li>
+                                        <li><a><i class="layui-icon layui-icon-login-qq" style="color:#18acfc;"></i></a>
+                                        </li>
+                                        <li><a><i class="layui-icon layui-icon-login-weibo"
+                                                    style="color: #ea5d5c"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="layui-tab-item"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    layui.use(['admin'], function () {
+        var $ = layui.$
+            , admin = layui.admin
+            , element = layui.element
+            , router = layui.router();
+
+        console.log($);
+        $("#isCheck").click(function () {
+            if ($(this).hasClass("input-select")) {
+                $("#isRead").css("visibility", "visible");
+                $(this).removeClass("input-select");
+                $(this).addClass("input-checkbox:hover");
+            } else {
+                $("#isRead").css("visibility", "hidden");
+                $(this).addClass("input-select");
+                $(this).removeClass("input-checkbox:hover");
+            }
+        });
+
+        $("#language").mouseover(function () {
+            $("#language_list").css("display", "block");
+            $("#icon").html('<i class="layui-icon layui-icon-up"></i>');
+        });
+
+        $("#language").mouseleave(function () {
+            $("#icon").html('<i class="layui-icon layui-icon-down"></i>');
+            $("#language_list").css("display", "none")
+        });
+
+        $("#language_list").mouseover(function () {
+            $("#icon").html('<i class="layui-icon layui-icon-up"></i>');
+            $("#language_list").css("display", "block")
+        });
+
+        $("#language_list").mouseleave(function () {
+            $("#icon").html('<i class="layui-icon layui-icon-down"></i>');
+            $("#language_list").css("display", "none")
+        });
+
+
+        $("#right-top-img").mouseover(function () {
+            $("#right-top").css("opacity", "100%");
+        });
+
+        $("#right-top-img").mouseleave(function () {
+            $("#right-top").css("opacity", ".4");
+        });
+
+        $("#right-top").mouseover(function () {
+            $("#right-top").css("opacity", "100%");
+        });
+
+        $("#right-top").mouseleave(function () {
+            $("#right-top").css("opacity", ".4");
+        });
+
+        $("#login-btn").click(function () {
+            location.href = "${ctx}/mi/user/main"
+        })
+    });
+</script>

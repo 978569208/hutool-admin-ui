@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="en">
+<script type="text/html" template>
+    <link rel="stylesheet" href="{{ layui.setter.base }}style/mi/main.css?v={{ layui.admin.v }}-1" media="all">
+</script>
+
+<head>
+    <meta charset="UTF-8">
+    <title>小米商城</title>
+</head>
+
+<body>
+
+    <div class="main-container">
+        <div class="top-container">
+            <div class="top-content-container">
+                <div class="top-content-left-container">
+                    <ul>
+                        <li><a>小米商城</a></li>
+                        <li><span>|</span></li>
+                        <li><a>MUI</a></li>
+                        <li><span>|</span></li>
+                        <li><a>ioT</a></li>
+                        <li><span>|</span></li>
+                        <li><a>云服务</a></li>
+                        <li><span>|</span></li>
+                        <li><a>天星数科</a></li>
+                        <li><span>|</span></li>
+                        <li><a>有品</a></li>
+                        <li><span>|</span></li>
+                        <li><a>小米开放平台</a></li>
+                        <li><span>|</span></li>
+                        <li><a>企业团购</a></li>
+                        <li><span>|</span></li>
+                        <li><a>资质证照</a></li>
+                        <li><span>|</span></li>
+                        <li><a>协议规则</a></li>
+                        <li><span>|</span></li>
+                        <li><a>下载app</a></li>
+                        <li><span>|</span></li>
+                        <li><a>Select Location</a></li>
+                    </ul>
+                </div>
+                <div class="top-content-right-container">
+                    <ul>
+                        <li style="margin-left: 30px;position: relative">
+                            <a id="shop_car" class="shop-car">
+                                <i class="layui-icon layui-icon-cart-simple" style="margin-right: 2px"></i>
+                                购物车(0)
+                                <div id="shop_car_list">
+                                    购物车中还没有商品，赶紧选购吧！
+                                </div>
+                            </a>
+                        </li>
+                        <li><a>消息通知</a></li>
+                        <li><span>|</span></li>
+                        <li><a>注册</a></li>
+                        <li><span>|</span></li>
+                        <li><a>登录</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="search-container">
+            <div class="search-content-container">
+                <div class="search-content-logo-container">
+                    <a id="logoBtn">
+                        <script type="text/html" template>
+                            <img src="{{ layui.setter.base }}style/res/mi/login/logo-mi2.png"
+                            style="height: 100%;width: 100%">
+                        </script>
+
+                    </a>
+                </div>
+                <div class="search-content-title-container">
+                    <ul>
+                        <li>
+                            <a>Xiaomi手机</a>
+                        </li>
+                        <li>
+                            <a>Redmi 红米</a>
+                        </li>
+                        <li>
+                            <a>电视</a>
+                        </li>
+                        <li>
+                            <a>笔记本</a>
+                        </li>
+                        <li>
+                            <a>平板</a>
+                        </li>
+                        <li>
+                            <a>家电</a>
+                        </li>
+                        <li>
+                            <a>路由器</a>
+                        </li>
+                        <li>
+                            <a>服务</a>
+                        </li>
+                        <li>
+                            <a>社区</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="search-content-input-container">
+                    <input id="search_key" list="search_key_list" type="text" class="layui-input" placeholder="耳机"
+                        style="height: 40px;margin-top: 30px;padding-right: 51px">
+                    <datalist id="search_key_list">
+                        <option>全部商品</option>
+                        <option>小米手机</option>
+                        <option>红米</option>
+                        <option>显示器</option>
+                        <option>冰箱</option>
+                        <option>洗衣机</option>
+                        <option>洗电视</option>
+                        <option>净水器</option>
+                    </datalist>
+                    <div class="search-content-input-search-logo-container">
+                        <i class="layui-icon layui-icon-search"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div id="search_title_list">
+                <div class="search-title-list-content-container">
+                    <ul>
+                        <li>
+                            <div class="img-box">
+                                <script type="text/html" template>
+                                    <img src="{{ layui.setter.base }}style/res/mi/main/pic1.webp">
+                                </script>
+
+                            </div>
+
+                            <div class="name-box">
+                                xiaomi Civi 1S
+                            </div>
+                            <div class="price-box">
+                                2299元起
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="img-box">
+                                <script type="text/html" template>
+                                    <img src="{{ layui.setter.base }}style/res/mi/main/pic2.webp">
+                                </script>
+
+                            </div>
+
+                            <div class="name-box">
+                                xiaomi Civi 1S
+                            </div>
+                            <div class="price-box">
+                                2299元起
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="img-box">
+                                <script type="text/html" template>
+                                    <img src="{{ layui.setter.base }}style/res/mi/main/pic3.webp">
+                                </script>
+
+                            </div>
+
+                            <div class="name-box">
+                                xiaomi Civi 1S
+                            </div>
+                            <div class="price-box">
+                                2299元起
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="img-box">
+                                <script type="text/html" template>
+                                    <img src="{{ layui.setter.base }}style/res/mi/main/pic4.webp">
+                                </script>
+
+                            </div>
+
+                            <div class="name-box">
+                                xiaomi Civi 1S
+                            </div>
+                            <div class="price-box">
+                                2299元起
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="img-box">
+                                <script type="text/html" template>
+                                    <img src="{{ layui.setter.base }}style/res/mi/main/pic5.webp">
+                                </script>
+
+                            </div>
+
+                            <div class="name-box">
+                                xiaomi Civi 1S
+                            </div>
+                            <div class="price-box">
+                                2299元起
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="img-box" style="border: none">
+                                <script type="text/html" template>
+                                    <img src="{{ layui.setter.base }}style/res/mi/main/pic6.webp">
+                                </script>
+
+                            </div>
+
+                            <div class="name-box">
+                                <span>xiaomi Civi 1S</span>
+                            </div>
+                            <div class="price-box">
+                                <span>2299元起</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="menu-container">
+            <div class="menu-content-container">
+                <div class="img-list-box">
+                    <div class="img-list">
+                        <div class="img-content">
+                            <ul id="item">
+                                <li class="img-item">
+                                    <script type="text/html" template>
+                                        <a href="#"><img src="{{ layui.setter.base }}style/res/mi/main/i1.jpg"></a>
+                                    </script>
+
+                                </li>
+                                <li class="img-item">
+                                    <script type="text/html" template>
+                                        <a href="#"><img src="{{ layui.setter.base }}style/res/mi/main/i2.webp"></a>
+                                    </script>
+
+                                </li>
+                                <li class="img-item">
+                                    <script type="text/html" template>
+                                        <a href="#"><img src="{{ layui.setter.base }}style/res/mi/main/i3.webp"></a>
+                                    </script>
+
+                                </li>
+                                <li class="img-item">
+                                    <script type="text/html" template>
+                                        <a href="#"><img src="{{ layui.setter.base }}style/res/mi/main/i4.webp"></a>
+                                    </script>
+
+                                </li>
+                                <li class="img-item">
+                                    <script type="text/html" template>
+                                        <a href="#"><img src="{{ layui.setter.base }}style/res/mi/main/i5.webp"></a>
+                                    </script>
+
+                                </li>
+                            </ul>
+                            <div id="btn-left">
+                            </div>
+                            <div id="btn-right">></div>
+                            <ul id="circle">
+                                <li class="img-circle"></li>
+                                <li class="img-circle"></li>
+                                <li class="img-circle"></li>
+                                <li class="img-circle"></li>
+                                <li class="img-circle"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-box">
+                    <ul>
+                        <li><a>手机</a></li>
+                        <li><a>电视</a></li>
+                        <li><a>笔记本 平板</a></li>
+                        <li><a>家电</a></li>
+                        <li><a>出行 穿戴</a></li>
+                        <li><a>智能 路由器</a></li>
+                        <li><a>电源 配件</a></li>
+                        <li><a>健康 儿童</a></li>
+                        <li><a>耳机 音响</a></li>
+                        <li><a>生活 箱包</a></li>
+                    </ul>
+                </div>
+
+                <div id="menu_hide_list_box" class="menu-hide-list-box">
+                    <div class="menu-hide-list-box-content">
+                        <ul>
+                            <li>
+                                <div class="menu-hide-list-box-item">
+                                    <script type="text/html" template>
+                                        <img src="{{ layui.setter.base }}style/res/mi/main/pic1.webp" /> Xiaomi Civi 1S
+                                    </script>
+
+                                </div>
+                            </li>
+                            <li>
+                                <div class="menu-hide-list-box-item">
+                                    <script type="text/html" template>
+                                        <img src="{{ layui.setter.base }}style/res/mi/main/pic1.webp" /> Xiaomi Civi 1S
+                                    </script>
+
+                                </div>
+                            </li>
+                            <li>
+                                <div class="menu-hide-list-box-item">
+                                    <script type="text/html" template>
+                                        <img src="{{ layui.setter.base }}style/res/mi/main/pic1.webp" /> Xiaomi Civi 1S
+                                    </script>
+
+
+                                </div>
+                            </li>
+                            <li>
+                                <div class="menu-hide-list-box-item">
+                                    <script type="text/html" template>
+                                        <img src="{{ layui.setter.base }}style/res/mi/main/pic1.webp" /> Xiaomi Civi 1S
+                                    </script>
+
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="menu-hide-list-box-content">
+                        <ul>
+                            <li>
+                                <div class="menu-hide-list-box-item">
+                                    <script type="text/html" template>
+                                        <img src="{{ layui.setter.base }}style/res/mi/main/pic1.webp" /> Xiaomi Civi 1S
+                                    </script>
+
+
+                                </div>
+                            </li>
+                            <li>
+                                <div class="menu-hide-list-box-item">
+                                    <script type="text/html" template>
+                                        <img src="{{ layui.setter.base }}style/res/mi/main/pic1.webp" /> Xiaomi Civi 1S
+                                    </script>
+
+                                </div>
+                            </li>
+                            <li>
+                                <div class="menu-hide-list-box-item">
+                                    <script type="text/html" template>
+                                        <img src="{{ layui.setter.base }}style/res/mi/main/pic1.webp" /> Xiaomi Civi 1S
+                                    </script>
+
+                                </div>
+                            </li>
+                            <li>
+                                <div class="menu-hide-list-box-item">
+                                    <script type="text/html" template>
+                                        <img src="{{ layui.setter.base }}style/res/mi/main/pic1.webp" /> Xiaomi Civi 1S
+                                    </script>
+
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="menu-hide-list-box-content">
+                        <ul>
+                            <li>
+                                <div class="menu-hide-list-box-item">
+                                    <script type="text/html" template>
+                                        <img src="{{ layui.setter.base }}style/res/mi/main/pic1.webp" /> Xiaomi Civi 1S
+                                    </script>
+
+                                </div>
+                            </li>
+                            <li>
+                                <div class="menu-hide-list-box-item">
+                                    <script type="text/html" template>
+                                        <img src="{{ layui.setter.base }}style/res/mi/main/pic1.webp" /> Xiaomi Civi 1S
+                                    </script>
+
+                                </div>
+                            </li>
+                            <li>
+                                <div class="menu-hide-list-box-item">
+                                    <script type="text/html" template>
+                                        <img src="{{ layui.setter.base }}style/res/mi/main/pic1.webp" /> Xiaomi Civi 1S
+                                    </script>
+
+                                </div>
+                            </li>
+                            <li>
+                                <div class="menu-hide-list-box-item">
+                                    <script type="text/html" template>
+                                        <img src="{{ layui.setter.base }}style/res/mi/main/pic1.webp" /> Xiaomi Civi 1S
+                                    </script>
+
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="menu-hide-list-box-content">
+                        <ul>
+                            <li>
+                                <div class="menu-hide-list-box-item">
+                                    <script type="text/html" template>
+                                        <img src="{{ layui.setter.base }}style/res/mi/main/pic1.webp" /> Xiaomi Civi 1S
+                                    </script>
+
+                                </div>
+                            </li>
+                            <li>
+                                <div class="menu-hide-list-box-item">
+                                    <script type="text/html" template>
+                                        <img src="{{ layui.setter.base }}style/res/mi/main/pic1.webp" /> Xiaomi Civi 1S
+                                    </script>
+
+                                </div>
+                            </li>
+                            <li>
+                                <div class="menu-hide-list-box-item">
+                                    <script type="text/html" template>
+                                        <img src="{{ layui.setter.base }}style/res/mi/main/pic1.webp" /> Xiaomi Civi 1S
+                                    </script>
+
+                                </div>
+                            </li>
+                            <li>
+                                <div class="menu-hide-list-box-item">
+                                    <script type="text/html" template>
+                                        <img src="{{ layui.setter.base }}style/res/mi/main/pic1.webp" /> Xiaomi Civi 1S
+                                    </script>
+
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="menu-hide-list-box-content">
+                        <ul>
+                            <li>
+                                <div class="menu-hide-list-box-item">
+                                    <script type="text/html" template>
+                                        <img src="{{ layui.setter.base }}style/res/mi/main/pic1.webp" /> Xiaomi Civi 1S
+                                    </script>
+
+                                </div>
+                            </li>
+                            <li>
+                                <div class="menu-hide-list-box-item">
+                                    <script type="text/html" template>
+                                        <img src="{{ layui.setter.base }}style/res/mi/main/pic1.webp" /> Xiaomi Civi 1S
+                                    </script>
+
+                                </div>
+                            </li>
+                            <li>
+                                <div class="menu-hide-list-box-item">
+                                    <script type="text/html" template>
+                                        <img src="{{ layui.setter.base }}style/res/mi/main/pic1.webp" /> Xiaomi Civi 1S
+                                    </script>
+
+                                </div>
+                            </li>
+                            <li>
+                                <div class="menu-hide-list-box-item">
+                                    <script type="text/html" template>
+                                        <img src="{{ layui.setter.base }}style/res/mi/main/pic1.webp" /> Xiaomi Civi 1S
+                                    </script>
+
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="quick-container">
+            <div class="quick-content-container">
+                <div class="quick-content-box">
+                    <ul>
+                        <li>
+                            <script type="text/html" template>
+                                <a><img src="{{ layui.setter.base }}style/res/mi/main/icon1.png">保障服务</a>
+                            </script>
+
+                        </li>
+                        <li>
+                            <script type="text/html" template>
+                                <a><img src="{{ layui.setter.base }}style/res/mi/main/icon2.png">企业团购</a>
+                            </script>
+
+                        </li>
+                        <li>
+                            <script type="text/html" template>
+                                <a><img src="{{ layui.setter.base }}style/res/mi/main/icon3.png">F码通道</a>
+                            </script>
+
+                        </li>
+                        <li>
+                            <script type="text/html" template>
+                                <a><img src="{{ layui.setter.base }}style/res/mi/main/icon4.png">米粉卡</a>
+                            </script>
+
+                        </li>
+                        <li>
+                            <script type="text/html" template>
+                                <a><img src="{{ layui.setter.base }}style/res/mi/main/icon5.png">以旧换新</a>
+                            </script>
+
+                        </li>
+                        <li>
+                            <script type="text/html" template>
+                                <a><img src="{{ layui.setter.base }}style/res/mi/main/icon6.png">话费充值</a>
+                            </script>
+
+                        </li>
+                    </ul>
+                </div>
+                <div class="quick-content-box pic1"></div>
+                <div class="quick-content-box pic2"></div>
+                <div class="quick-content-box pic3"></div>
+            </div>
+        </div>
+        <div class="main-bottom-container clearfix">
+            <div class="main-bottom-content-container">
+                <div class="red-mi-big-img-container">
+
+                </div>
+
+                <div class="red-mi-title">
+                    <div class="red-mi-title-name">手机</div>
+                    <div class="red-mi-title-more">查看更多&nbsp;&nbsp;<i class="layui-icon layui-icon-play"></i></div>
+                </div>
+
+                <div class="red-mi-product-container">
+                    <div class="red-mi-product-left">
+
+                    </div>
+                    <div class="red-mi-product-right">
+                        <ul>
+                            <li class="one-line">
+                                <div class="red-mi-img-box">
+                                    <script type="text/html" template>
+                                        <img src="{{ layui.setter.base }}style/res/mi/main/pic1.webp">
+                                    </script>
+
+                                </div>
+
+                                <div class="red-mi-name-box">
+                                    <h3>xiaomi Civi 1S</h3>
+                                </div>
+                                <div class="red-mi-desc-box">
+                                    <p>原生美肌人像|奇迹阳光动人新色|...</p>
+                                </div>
+                                <div class="red-mi-price-box">
+                                    2299元起
+                                </div>
+                            </li>
+                            <li class="one-line">
+                                <div class="red-mi-img-box">
+                                    <script type="text/html" template>
+                                        <img src="{{ layui.setter.base }}style/res/mi/main/pic1.webp">
+                                    </script>
+
+                                </div>
+
+                                <div class="red-mi-name-box">
+                                    <h3>xiaomi Civi 1S</h3>
+                                </div>
+                                <div class="red-mi-desc-box">
+                                    <p>原生美肌人像|奇迹阳光动人新色|...</p>
+                                </div>
+                                <div class="red-mi-price-box">
+                                    2299元起
+                                </div>
+                            </li>
+                            <li class="one-line">
+                                <div class="red-mi-img-box">
+                                    <script type="text/html" template>
+                                        <img src="{{ layui.setter.base }}style/res/mi/main/pic1.webp">
+                                    </script>
+
+                                </div>
+
+                                <div class="red-mi-name-box">
+                                    <h3>xiaomi Civi 1S</h3>
+                                </div>
+                                <div class="red-mi-desc-box">
+                                    <p>原生美肌人像|奇迹阳光动人新色|...</p>
+                                </div>
+                                <div class="red-mi-price-box">
+                                    2299元起
+                                </div>
+                            </li>
+                            <li class="one-line">
+                                <div class="red-mi-img-box">
+                                    <script type="text/html" template>
+                                        <img src="{{ layui.setter.base }}style/res/mi/main/pic1.webp">
+                                    </script>
+
+                                </div>
+
+                                <div class="red-mi-name-box">
+                                    <h3>xiaomi Civi 1S</h3>
+                                </div>
+                                <div class="red-mi-desc-box">
+                                    <p>原生美肌人像|奇迹阳光动人新色|...</p>
+                                </div>
+                                <div class="red-mi-price-box">
+                                    2299元起
+                                </div>
+                            </li>
+                            <li class="two-line">
+                                <div class="red-mi-img-box">
+                                    <script type="text/html" template>
+                                        <img src="{{ layui.setter.base }}style/res/mi/main/pic1.webp">
+                                    </script>
+
+                                </div>
+
+                                <div class="red-mi-name-box">
+                                    <h3>xiaomi Civi 1S</h3>
+                                </div>
+                                <div class="red-mi-desc-box">
+                                    <p>原生美肌人像|奇迹阳光动人新色|...</p>
+                                </div>
+                                <div class="red-mi-price-box">
+                                    2299元起
+                                </div>
+                            </li>
+                            <li class="two-line">
+                                <div class="red-mi-img-box">
+                                    <script type="text/html" template>
+                                        <img src="{{ layui.setter.base }}style/res/mi/main/pic1.webp">
+                                    </script>
+
+                                </div>
+
+                                <div class="red-mi-name-box">
+                                    <h3>xiaomi Civi 1S</h3>
+                                </div>
+                                <div class="red-mi-desc-box">
+                                    <p>原生美肌人像|奇迹阳光动人新色|...</p>
+                                </div>
+                                <div class="red-mi-price-box">
+                                    2299元起
+                                </div>
+                            </li>
+                            <li class="two-line">
+                                <div class="red-mi-img-box">
+                                    <script type="text/html" template>
+                                        <img src="{{ layui.setter.base }}style/res/mi/main/pic1.webp">
+                                    </script>
+
+                                </div>
+
+                                <div class="red-mi-name-box">
+                                    <h3>xiaomi Civi 1S</h3>
+                                </div>
+                                <div class="red-mi-desc-box">
+                                    <p>原生美肌人像|奇迹阳光动人新色|...</p>
+                                </div>
+                                <div class="red-mi-price-box">
+                                    2299元起
+                                </div>
+                            </li>
+                            <li class="two-line">
+                                <div class="red-mi-img-box">
+                                    <script type="text/html" template>
+                                        <img src="{{ layui.setter.base }}style/res/mi/main/pic1.webp">
+                                    </script>
+
+                                </div>
+
+                                <div class="red-mi-name-box">
+                                    <h3>xiaomi Civi 1S</h3>
+                                </div>
+                                <div class="red-mi-desc-box">
+                                    <p>原生美肌人像|奇迹阳光动人新色|...</p>
+                                </div>
+                                <div class="red-mi-price-box">
+                                    2299元起
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="video-title">
+                    <div class="video-title-name">视频</div>
+                    <div class="video-title-more">查看全部&nbsp;&nbsp;<i class="layui-icon layui-icon-play"></i></div>
+                </div>
+
+                <div class="video-container">
+                    <ul class="clearfix">
+                        <li><a>
+                                <script type="text/html" template>
+                                <img src="{{ layui.setter.base }}style/res/mi/main/video1.webp" />
+                            </script>
+
+                                <i class="layui-icon layui-icon-play"></i>
+                                <span class="icon-hover">
+                                    <div class="icon-play">
+
+                                    </div>
+                                </span>
+                                <div class="video-title-content">
+                                    <span>2021年春季新品发布会第一场</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li><a>
+                                <script type="text/html" template>
+                                <img src="{{ layui.setter.base }}style/res/mi/main/video2.webp" />
+                            </script>
+
+                                <i class="layui-icon layui-icon-play"></i>
+                                <span class="icon-hover">
+                                    <div class="icon-play">
+
+                                    </div>
+                                </span>
+                                <div class="video-title-content">
+                                    <span>Redmi 10X系列发布会</span>
+                                </div>
+
+                            </a>
+                        </li>
+                        <li><a>
+                                <script type="text/html" template>
+                                <img src="{{ layui.setter.base }}style/res/mi/main/video3.webp" />
+                            </script>
+
+                                <i class="layui-icon layui-icon-play"></i>
+                                <span class="icon-hover">
+                                    <div class="icon-play">
+
+                                    </div>
+                                </span>
+                                <div class="video-title-content">
+                                    <span>小米10 青春版 发布会</span>
+                                </div>
+                            </a></li>
+                        <li><a>
+                                <script type="text/html" template>
+                                <img src="{{ layui.setter.base }}style/res/mi/main/video4.webp" />
+                            </script>
+
+                                <i class="layui-icon layui-icon-play"></i>
+                                <span class="icon-hover">
+                                    <div class="icon-play">
+
+                                    </div>
+                                </span>
+                                <div class="video-title-content">
+                                    <span>小米10 8K手机拍大片</span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-footer-container">
+            <div class="main-footer-content-container clearfix">
+                <div class="main-footer-top-title-container clearfix">
+                    <ul class="main-footer-top-title-ul clearfix">
+                        <li><a><i class="layui-icon layui-icon-util"></i>预约维修服务</a></li>
+                        <li><a>⑦7天无理由退货</a></li>
+                        <li><a>①⑤15天免费退换</a></li>
+                        <li><a><i class="layui-icon layui-icon-gift"></i>满69包邮</a></li>
+                        <li><a><i class="layui-icon layui-icon-location"></i>520余家售后网点</a></li>
+                    </ul>
+                </div>
+                <div class="main-footer-center-container clearfix">
+                    <div class="main-footer-center-left-container clearfix">
+                        <ul class="main-footer-center-ul">
+                            <li><a>帮助中心</a></li>
+                            <li><a>账户管理</a></li>
+                            <li><a>购物指南</a></li>
+                            <li><a>订单操作</a></li>
+                        </ul>
+                        <ul class="main-footer-center-ul">
+                            <li><a>服务支持</a></li>
+                            <li><a>售后政策</a></li>
+                            <li><a>自主服务</a></li>
+                            <li><a>相关下载</a></li>
+                        </ul>
+                        <ul class="main-footer-center-ul">
+                            <li><a>线下门店</a></li>
+                            <li><a>小米之家</a></li>
+                            <li><a>服务网点</a></li>
+                            <li><a>授权体验店/专区</a></li>
+                        </ul>
+                        <ul class="main-footer-center-ul">
+                            <li><a>关于小米</a></li>
+                            <li><a>了解小米</a></li>
+                            <li><a>加入小米</a></li>
+                            <li><a>投资者关系</a></li>
+                            <li><a>企业社会责任</a></li>
+                            <li><a>廉洁举报</a></li>
+                        </ul>
+                        <ul class="main-footer-center-ul">
+                            <li><a>关注我们</a></li>
+                            <li><a>新浪微博</a></li>
+                            <li><a>官方微信</a></li>
+                            <li><a>联系我们</a></li>
+                            <li><a>公益基金会</a></li>
+                        </ul>
+                        <ul class="main-footer-center-ul">
+                            <li><a>特色服务</a></li>
+                            <li><a>F 码通道</a></li>
+                            <li><a>礼物码</a></li>
+                            <li><a>防伪查询</a></li>
+                        </ul>
+                    </div>
+                    <div class="main-footer-center-right-container">
+                        <div class="main-footer-center-right-phone">
+                            400-100-5678
+                        </div>
+                        <div class="main-footer-center-right-work-time">
+                            8:00-18:00（仅收市话费）
+                        </div>
+                        <div class="main-footer-center-right-service">
+                            <button type="button" class="layui-btn layui-btn-primary"><i
+                                    class="layui-icon layui-icon-dialogue"></i>人工客服
+                            </button>
+                        </div>
+
+                        <div class="main-footer-center-right-relation">
+                            关注小米：<i class="layui-icon layui-icon-login-weibo"></i><i
+                                class="layui-icon layui-icon-login-wechat"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-footer-mi-info-container clearfix">
+            <div class="main-footer-mi-info-content-container clearfix">
+                <div class="main-footer-mi-info-content-logo-container">
+                    <a id="logoBtn">
+                        <script type="text/html" template>
+                            <img src="{{ layui.setter.base }}style/res/mi/login/logo-mi2.png"
+                            style="height: 100%;width: 100%">
+                        </script>
+
+                    </a>
+                </div>
+                <div class="main-footer-mi-info-content-info-container clearfix">
+                    <ul class="clearfix">
+                        <li><a>小米商城</a></li>
+                        <li><a>MIUI</a></li>
+                        <li><a>米家</a></li>
+                        <li><a>米聊</a></li>
+                        <li><a>多看</a></li>
+                        <li><a>游戏</a></li>
+                        <li><a>政企服务</a></li>
+                        <li><a>小米天猫店</a></li>
+                        <li><a>小米集团隐私政策</a></li>
+                        <li><a>小米公司儿童信息保护规则</a></li>
+                        <li><a>小米商城隐私政策</a></li>
+                        <li><a>小米商城用户协议</a></li>
+                        <li><a>问题反馈</a></li>
+                        <li><a>Select Location</a></li>
+                    </ul>
+                    <ul class="clearfix">
+                        <li><a>北京互联网法院法律服务工作站</a></li>
+                        <li><a>中国消费者协会</a></li>
+                        <li><a>北京市消费者协会</a></li>
+                    </ul>
+                    <ul class="clearfix">
+                        <li><a>© mi.com</a></li>
+                        <li><a>京ICP证110507号</a></li>
+                        <li><a>京ICP备10046444号</a></li>
+                        <li><a>京公网安备11010802020134号</a></li>
+                        <li><a>京网文[2020]0276-042号</a></li>
+                    </ul>
+                    <ul class="clearfix">
+                        <li><a>（京）网械平台备字（2018）第00005号</a></li>
+                        <li><a>互联网药品信息服务资格证 (京)-非经营性-2014-0090</a></li>
+                        <li><a>营业执照</a></li>
+                        <li><a>医疗器械质量公告</a></li>
+                    </ul>
+                    <ul class="clearfix">
+                        <li><a>增值电信业务许可证</a></li>
+                        <li><a>网络食品经营备案</a></li>
+                        <li><a>京食药网食备202010048</a></li>
+                        <li><a>食品经营许可证</a></li>
+                    </ul>
+
+                    <ul class="clearfix">
+                        <li><a>违法和不良信息举报电话：171-5104-4404 知识产权侵权投诉 本网站所列数据，除特殊说明，所有数据均出自我司实验室测试</a></li>
+                    </ul>
+                    <ul class="clearfix">
+                        <script type="text/html" template>
+                            <li><a><img src="{{ layui.setter.base }}style/res/mi/main/info1.png"></a></li>
+                            <li><a><img src="{{ layui.setter.base }}style/res/mi/main/info2.png"></a></li>
+                            <li><a><img src="{{ layui.setter.base }}style/res/mi/main/info3.png"></a></li>
+                            <li><a><img src="{{ layui.setter.base }}style/res/mi/main/info4.png"></a></li>
+                            <li><a><img src="{{ layui.setter.base }}style/res/mi/main/info5.png"></a></li>
+                        </script>
+
+                    </ul>
+
+                    <div class="slogan ir">探索黑科技，小米为发烧而生</div>
+                </div>
+            </div>
+        </div>
+        <div class="main-right-bar">
+            <ul>
+                <li>
+                    <i class="layui-icon layui-icon-cellphone"></i>
+                    <h3>手机APP</h3>
+                </li>
+                <li><i class="layui-icon layui-icon-username"></i>
+                    <h3>个人中心</h3>
+                </li>
+                <li><i class="layui-icon layui-icon-survey"></i>
+                    <h3>售后服务</h3>
+                </li>
+                <li><i class="layui-icon layui-icon-service"></i>
+                    <h3>人工客服</h3>
+                </li>
+                <li><i class="layui-icon layui-icon-cart-simple"></i>
+                    <h3>购物车</h3>
+                </li>
+                <li id="position_box" style="height: 20px;background-color: transparent;display: none"></li>
+                <li id="gotoTop" style="display: none"><i class="layui-icon layui-icon-top"></i>
+                    <h3>回顶部</h3>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    layui.use(['admin'], function () {
+        var $ = layui.$
+            , admin = layui.admin
+            , element = layui.element
+            , router = layui.router();
+
+        $(document).ready(function () {
+            $("#shop_car").mouseover(function () {
+                $("#shop_car_list").css("display", "block");
+            });
+
+            $("#shop_car").mouseleave(function () {
+                $("#shop_car_list").css("display", "none")
+            });
+
+            $(".search-content-title-container li").mouseover(function () {
+                $("#search_title_list").css("display", "block");
+                $("#search_title_list").animate({
+                    height: '230px',
+                });
+            });
+
+            $(".search-content-title-container li").mouseleave(function () {
+                $("#search_title_list").css("display", "none");
+                $("#search_title_list").css("height", "0px");
+            });
+
+            $("#search_title_list").mouseover(function () {
+                $("#search_title_list").css("display", "block");
+                $("#search_title_list").css("height", "230px");
+            });
+
+            $("#search_title_list").mouseleave(function () {
+                $("#search_title_list").css("display", "none");
+                $("#search_title_list").css("height", "0px");
+            });
+
+
+            $(".menu-box li").mouseover(function () {
+                $("#menu_hide_list_box").css("display", "block");
+            });
+
+            $(".menu-box li").mouseleave(function () {
+                $("#menu_hide_list_box").css("display", "none")
+            });
+
+            $("#menu_hide_list_box").mouseover(function () {
+                $("#menu_hide_list_box").css("display", "block")
+            });
+
+
+            $("#menu_hide_list_box").mouseleave(function () {
+                $("#menu_hide_list_box").css("display", "none")
+            });
+
+            $("#gotoTop").click(function () {
+                $(".main-container").animate({ scrollTop: 0 });
+            })
+
+            $(".main-container").bind('scroll', function () {
+                var scrollTop = $(this)[0].scrollTop;
+                console.log(scrollTop)
+                if (scrollTop > 500) {
+                    $("#gotoTop").css("display", "block");
+                    $("#position_box").css("display", "block");
+                } else {
+                    $("#gotoTop").css("display", "none");
+                    $("#position_box").css("display", "none");
+                }
+            });
+        });
+    });
+
+</script>
+
+
+<script>
+    layui.use(['admin'], function () {
+        var $ = layui.$
+            , admin = layui.admin
+            , element = layui.element
+            , router = layui.router();
+
+        window.onload = function () {
+            var items = document.getElementsByClassName("img-item");
+            var circles = document.getElementsByClassName("img-circle");
+            var leftBtn = document.getElementById("btn-left");
+            var rightBtn = document.getElementById("btn-right");
+            var content = document.querySelector('.img-content');
+            var index = 0;
+            var timer = null;
+
+            //清除class
+            var clearclass = function () {
+                for (let i = 0; i < items.length; i++) {
+                    items[i].className = "img-item";
+                    circles[i].className = "img-circle";
+                    circles[i].setAttribute("num", i);
+                }
+            }
+
+            /*只显示一个class*/
+            function move() {
+                clearclass();
+                items[index].className = "img-item active";
+                circles[index].className = "img-circle img-white";
+            }
+
+            //点击右边按钮切换下一张图片
+            rightBtn.onclick = function () {
+                if (index < items.length - 1) {
+                    index++;
+                } else {
+                    index = 0;
+                }
+                move();
+            }
+            //点击左边按钮切换上一张图片
+            leftBtn.onclick = function () {
+                if (index < items.length) {
+                    index--;
+                } else {
+                    index = items.length - 1;
+                }
+                move();
+            }
+            //开始定时器，点击右边按钮，实现轮播
+            timer = setInterval(function () {
+                rightBtn.onclick();
+            }, 1500)
+            //点击圆点时，跳转到对应图片
+            for (var i = 0; i < circles.length; i++) {
+                circles[i].addEventListener("click", function () {
+                    var point_index = this.getAttribute("num");
+                    index = point_index;
+                    move();
+                })
+
+            }
+            //鼠标移入清除定时器，并开启一个三秒的定时器，使慢慢转动
+            content.onmouseover = function () {
+                clearInterval(timer);
+                timer = setInterval(function () {
+                    rightBtn.onclick();
+                }, 3000)
+            }
+
+
+            //鼠标移出又开启定时器
+            content.onmouseleave = function () {
+                clearInterval(timer);
+                timer = setInterval(function () {
+                    rightBtn.onclick();
+                }, 1500)
+            }
+        }
+    });
+
+</script>

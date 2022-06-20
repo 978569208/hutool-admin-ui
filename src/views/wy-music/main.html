@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<script type="text/html" template>
+        <link rel="stylesheet" href="{{ layui.setter.base }}style/wy-music/main.css?v={{ layui.admin.v }}-1" media="all">
+</script>
+
+<head>
+    <meta charset="UTF-8">
+    <title>网易云音乐</title>
+</head>
+
+<body>
+
+    <container>
+        <script type="text/html" template>
+        <div class="top-container">
+            <div class="top-container-content">
+                <a class="top-logo">
+
+                </a>
+                <ul class="top-bar-ul">
+                    <li class="active">发现音乐</li>
+                    <li>我的音乐</li>
+                    <li>关注</li>
+                    <li>商城</li>
+                    <li>音乐人</li>
+                    <li>下载客户端
+                        <div class="hot-img">
+
+                        </div>
+                    </li>
+
+                </ul>
+                <div class="search-box">
+                    <input type="text" placeholder="音乐/视频/电台/用户">
+                    <i class="layui-icon layui-icon-search"></i>
+                </div>
+
+                <div class="creator">
+                    <input type="button" value="创作者中心">
+                </div>
+
+                <div class="login-box">
+                    <a>登录</a>
+                </div>
+            </div>
+        </div>
+        <div class="red-container">
+            <div class="red-content-container">
+                <ul>
+                    <li class="active">推荐</li>
+                    <li>排行榜</li>
+                    <li>歌单</li>
+                    <li>主播电台</li>
+                    <li>歌手</li>
+                    <li>新碟上架</li>
+                </ul>
+            </div>
+        </div>
+        <div class="images-box-container">
+            <div class="images-box-content-container">
+                <div class="img-box">
+                    <ul id="item">
+                        <li class="img-item active">
+                            <a href="#"><img src="{{ layui.setter.base }}style/res/wy-music/轮播图/1.jpg"></a>
+                        </li>
+                        <li class="img-item">
+                            <a href="#"><img src="{{ layui.setter.base }}style/res/wy-music/轮播图/2.jpg"></a>
+                        </li>
+                        <li class="img-item">
+                            <a href="#"><img src="{{ layui.setter.base }}style/res/wy-music/轮播图/3.jpg"></a>
+                        </li>
+                        <li class="img-item">
+                            <a href="#"><img src="{{ layui.setter.base }}style/res/wy-music/轮播图/4.jpg"></a>
+                        </li>
+                        <li class="img-item">
+                            <a href="#"><img src="{{ layui.setter.base }}style/res/wy-music/轮播图/5.jpg"></a>
+                        </li>
+                    </ul>
+                    <div id="btn-left">
+                    </div>
+                    <div id="btn-right">></div>
+                    <ul id="circle">
+                        <li class="img-circle img-white"></li>
+                        <li class="img-circle"></li>
+                        <li class="img-circle"></li>
+                        <li class="img-circle"></li>
+                        <li class="img-circle"></li>
+                    </ul>
+                </div>
+                <div class="download-box">
+                    <a class="download-box-btn"></a>
+                    <span class="download-box-text">
+                        PC 安卓 iPhone WP iPad Mac 六大客户端
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="detail-container">
+            <div class="detail-content-container">
+                <div class="left-content-container">
+                    <div class="top-bar">
+                        <div class="recommend-box">
+                            <a class="recommend-icon">
+
+                            </a>
+                            <span class="recommend-text">热门推荐</span>
+                        </div>
+                        <ul class="kind_ul">
+                            <li>华语</li>
+                            <li>流行</li>
+                            <li>摇滚</li>
+                            <li>民谣</li>
+                            <li>电子</li>
+                        </ul>
+                        <div class="more-box">
+                            <span>更多</span>
+                            <a class="right-icon">
+
+                            </a>
+                        </div>
+                    </div>
+                    <div class="music-box">
+                        <ul class="music-img-box">
+                            <li><a><img src="{{ layui.setter.base }}style/res/wy-music/music/1.jpg"></a>
+                                <div class="music-bottom">
+                                    <i class="fa fa-headphones" aria-hidden="true"></i>
+                                    <span>180万</span>
+                                    <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                </div>
+                                <a class="music-txt">一些听了会开心快乐的歌</a>
+                            </li>
+                            <li><a><img src="{{ layui.setter.base }}style/res/wy-music/music/2.jpg"></a>
+                                <div class="music-bottom">
+                                    <i class="fa fa-headphones" aria-hidden="true"></i>
+                                    <span>20万</span>
+                                    <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                </div>
+                                <a class="music-txt">及时止损的爱 还是爱吗</a>
+                            </li>
+                            <li><a><img src="{{ layui.setter.base }}style/res/wy-music/music/3.jpg"></a>
+                                <div class="music-bottom">
+                                    <i class="fa fa-headphones" aria-hidden="true"></i>
+                                    <span>556万</span>
+                                    <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                </div>
+                                <a class="music-txt">华语伤感 |
+                                    遇见了你却错过了她</a>
+                            </li>
+                            <li><a><img src="{{ layui.setter.base }}style/res/wy-music/music/4.jpg"></a>
+                                <div class="music-bottom">
+                                    <i class="fa fa-headphones" aria-hidden="true"></i>
+                                    <span>1776万</span>
+                                    <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                </div>
+                                <a class="music-txt"> 爱在港乐02-热恋</a>
+                            </li>
+                            <li><a><img src="{{ layui.setter.base }}style/res/wy-music/music/5.jpg"></a>
+                                <div class="music-bottom">
+                                    <i class="fa fa-headphones" aria-hidden="true"></i>
+                                    <span>120万</span>
+                                    <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                </div>
+                                <a class="music-txt">阿尔法脑波音乐（激发右脑潜能）增加记忆力</a>
+                            </li>
+                            <li><a><img src="{{ layui.setter.base }}style/res/wy-music/music/6.jpg"></a>
+                                <div class="music-bottom">
+                                    <i class="fa fa-headphones" aria-hidden="true"></i>
+                                    <span>280万</span>
+                                    <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                </div>
+                                <a class="music-txt">《赘婿》01：
+                                    金融巨头穿越成卑微赘婿，却在整个江宁城...</a>
+                            </li>
+                            <li><a><img src="{{ layui.setter.base }}style/res/wy-music/music/7.jpg"></a>
+                                <div class="music-bottom">
+                                    <i class="fa fa-headphones" aria-hidden="true"></i>
+                                    <span>710万</span>
+                                    <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                </div>
+                                <a class="music-txt">果味音乐集 |
+                                    带给你一整天的轻快旋律</a>
+                            </li>
+                            <li><a><img src="{{ layui.setter.base }}style/res/wy-music/music/8.jpg"></a>
+                                <div class="music-bottom">
+                                    <i class="fa fa-headphones" aria-hidden="true"></i>
+                                    <span>290万</span>
+                                    <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                </div>
+                                <a class="music-txt">给陌生的你听（0.8x）(完整版</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="center-bar">
+                        <div class="recommend-box">
+                            <a class="recommend-icon">
+
+                            </a>
+                            <span class="recommend-text">新碟上架</span>
+                        </div>
+                        <div class="more-box">
+                            <span>更多</span>
+                            <a class="right-icon">
+
+                            </a>
+                        </div>
+                    </div>
+                    <div class="new-music-put-on">
+                        <ul class="new-music-image-ul">
+                            <li>
+                                <div class="new-img-box">
+                                    <img src="{{ layui.setter.base }}style/res/wy-music/new/1.jpg">
+                                    <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                </div>
+                                <a class="new-img-back">
+
+                                </a>
+                                <span class="title1">Mr. Morale & The Big</span>
+                                <span class="title2">Kendrick Lamar</span>
+                            </li>
+                            <li>
+                                <div class="new-img-box">
+                                    <img src="{{ layui.setter.base }}style/res/wy-music/new/2.jpg">
+                                    <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                </div>
+                                <a class="new-img-back">
+
+                                </a>
+                                <span class="title1">Minutes to Midnight (</span>
+                                <span class="title2">Linkin Park</span>
+                            </li>
+                            <li>
+                                <div class="new-img-box">
+                                    <img src="{{ layui.setter.base }}style/res/wy-music/new/3.jpg">
+                                    <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                </div>
+                                <a class="new-img-back">
+
+                                </a>
+                                <span class="title1">So Far So Good</span>
+                                <span class="title2">The Chainsmokers</span>
+                            </li>
+                            <li>
+                                <a class="new-img-back">
+
+                                </a>
+                                <div class="new-img-box">
+                                    <img src="{{ layui.setter.base }}style/res/wy-music/new/4.jpg">
+                                    <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                </div>
+                                <span class="title1">Cooped Up</span>
+                                <span class="title2">Post Malone / Rodd</span>
+                            </li>
+                            <li>
+                                <div class="new-img-box">
+                                    <img src="{{ layui.setter.base }}style/res/wy-music/new/5.jpg">
+                                    <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                </div>
+                                <a class="new-img-back">
+
+                                </a>
+                                <span class="title1">石敢当</span>
+                                <span class="title2">木推瓜</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="center-bar">
+                        <div class="recommend-box">
+                            <a class="recommend-icon">
+
+                            </a>
+                            <span class="recommend-text">榜单</span>
+                        </div>
+                        <div class="more-box">
+                            <span>更多</span>
+                            <a class="right-icon">
+
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="list-container">
+                        <div class="list-content-container fly-up-list">
+                            <div class="top">
+                                <div class="top-image-box">
+                                    <img src="{{ layui.setter.base }}style/res/wy-music/list/1.jpg">
+                                </div>
+                                <div class="top-desc">
+                                    <span>飙升榜</span>
+                                    <span><i class="fa fa-play-circle-o" aria-hidden="true"></i><i
+                                            class="fa fa-folder-open" aria-hidden="true"></i></span>
+                                </div>
+                            </div>
+                            <div class="bottom">
+                                <ul class="song-list">
+                                    <li><span class="index top3">1</span> <span class="song-name">想你</span></li>
+                                    <li><span class="index top3">2</span> <span class="song-name">So Far Away</span>
+                                    </li>
+                                    <li><span class="index top3">3</span> <span class="song-name">三国恋</span></li>
+                                    <li><span class="index">4</span> <span class="song-name">先说谎的人</span></li>
+                                    <li><span class="index">5</span> <span class="song-name">Rapping
+                                            freestyle</span></li>
+                                    <li><span class="index">6</span> <span class="song-name">宇宙孤儿</span></li>
+                                    <li><span class="index">7</span> <span class="song-name">In The Shadow Of The
+                                            Sun</span>
+                                    </li>
+                                    <li><span class="index">8</span> <span class="song-name">想自由</span></li>
+                                    <li><span class="index">9</span> <span class="song-name">Empty Love</span></li>
+                                    <li><span class="index">10</span> <span class="song-name">风，太阳，鲜花</span></li>
+                                    <li><span class="index"></span> <span class="song-name">查看全部></span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="list-content-container new-song-list">
+                            <div class="top">
+                                <div class="top-image-box">
+                                    <img src="{{ layui.setter.base }}style/res/wy-music/list/2.jpg">
+                                </div>
+                                <div class="top-desc">
+                                    <span>飙升榜</span>
+                                    <span><i class="fa fa-play-circle-o" aria-hidden="true"></i><i
+                                            class="fa fa-folder-open" aria-hidden="true"></i></span>
+                                </div>
+                            </div>
+                            <div class="bottom">
+                                <ul class="song-list">
+                                    <li><span class="index top3">1</span> <span class="song-name">想你</span></li>
+                                    <li><span class="index top3">2</span> <span class="song-name">So Far Away</span>
+                                    </li>
+                                    <li><span class="index top3">3</span> <span class="song-name">三国恋</span></li>
+                                    <li><span class="index">4</span> <span class="song-name">先说谎的人</span></li>
+                                    <li><span class="index">5</span> <span class="song-name">Rapping
+                                            freestyle</span></li>
+                                    <li><span class="index">6</span> <span class="song-name">宇宙孤儿</span></li>
+                                    <li><span class="index">7</span> <span class="song-name">In The Shadow Of The
+                                            Sun</span>
+                                    </li>
+                                    <li><span class="index">8</span> <span class="song-name">想自由</span></li>
+                                    <li><span class="index">9</span> <span class="song-name">Empty Love</span></li>
+                                    <li><span class="index">10</span> <span class="song-name">风，太阳，鲜花</span></li>
+                                    <li><span class="index"></span> <span class="song-name">查看全部></span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="list-content-container original-list">
+                            <div class="top">
+                                <div class="top-image-box">
+                                    <img src="{{ layui.setter.base }}style/res/wy-music/list/3.jpg">
+                                </div>
+                                <div class="top-desc">
+                                    <span>飙升榜</span>
+                                    <span><i class="fa fa-play-circle-o" aria-hidden="true"></i><i
+                                            class="fa fa-folder-open" aria-hidden="true"></i></span>
+                                </div>
+                            </div>
+                            <div class="bottom">
+                                <ul class="song-list">
+                                    <li><span class="index top3">1</span> <span class="song-name">想你</span></li>
+                                    <li><span class="index top3">2</span> <span class="song-name">So Far Away</span>
+                                    </li>
+                                    <li><span class="index top3">3</span> <span class="song-name">三国恋</span></li>
+                                    <li><span class="index">4</span> <span class="song-name">先说谎的人</span></li>
+                                    <li><span class="index">5</span> <span class="song-name">Rapping
+                                            freestyle</span></li>
+                                    <li><span class="index">6</span> <span class="song-name">宇宙孤儿</span></li>
+                                    <li><span class="index">7</span> <span class="song-name">In The Shadow Of The
+                                            Sun</span>
+                                    </li>
+                                    <li><span class="index">8</span> <span class="song-name">想自由</span></li>
+                                    <li><span class="index">9</span> <span class="song-name">Empty Love</span></li>
+                                    <li><span class="index">10</span> <span class="song-name">风，太阳，鲜花</span></li>
+                                    <li><span class="index"></span> <span class="song-name">查看全部></span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="right-content-container">
+                    <div class="login-box">
+                        <div class="login-desc">登录网易云音乐，可以享受无限收藏的乐趣，并且无限同步到手机</div>
+                        <div class="login-btn-box">
+                            <button class="login-btn">用户登录</button>
+                        </div>
+                    </div>
+                    <div class="singer-box">
+                        <div class="singer-title">
+                            <div>入驻歌手</div>
+                            <div>查看全部></div>
+                        </div>
+
+                        <div class="singer-list">
+                            <ul>
+                                <li>
+                                    <div class="singer-img-box"><img src="{{ layui.setter.base }}style/res/wy-music/singer/1.jpg">
+                                    </div>
+                                    <div class="singer-desc-box"><span class="singer-name">张惠妹aMEI</span><br><span
+                                            class="singer-desc">台湾歌手张惠妹</span></div>
+                                </li>
+                                <li>
+                                    <div class="singer-img-box"><img src="{{ layui.setter.base }}style/res/wy-music/singer/2.jpg">
+                                    </div>
+                                    <div class="singer-desc-box"><span class="singer-name">张惠妹aMEI</span><br><span
+                                            class="singer-desc">台湾歌手张惠妹</span></div>
+                                </li>
+                                <li>
+                                    <div class="singer-img-box"><img src="{{ layui.setter.base }}style/res/wy-music/singer/3.jpg">
+                                    </div>
+                                    <div class="singer-desc-box"><span class="singer-name">张惠妹aMEI</span><br><span
+                                            class="singer-desc">台湾歌手张惠妹</span></div>
+                                </li>
+                                <li>
+                                    <div class="singer-img-box"><img src="{{ layui.setter.base }}style/res/wy-music/singer/4.jpg">
+                                    </div>
+                                    <div class="singer-desc-box"><span class="singer-name">张惠妹aMEI</span><br><span
+                                            class="singer-desc">台湾歌手张惠妹</span></div>
+                                </li>
+                                <li>
+                                    <div class="singer-img-box"><img src="{{ layui.setter.base }}style/res/wy-music/singer/5.jpg">
+                                    </div>
+                                    <div class="singer-desc-box"><span class="singer-name">张惠妹aMEI</span><br><span
+                                            class="singer-desc">台湾歌手张惠妹</span></div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="apply-btn-box">
+                            <button class="apply-btn">申请成为网易音乐人</button>
+                        </div>
+                    </div>
+
+
+                    <div class="zb-box">
+                        <div class="zb-title">
+                            <div>热门主播</div>
+                        </div>
+
+                        <div class="zb-list">
+                            <ul>
+                                <li>
+                                    <div class="zb-img-box"><img src="{{ layui.setter.base }}style/res/wy-music/zb/1.jpg"></div>
+                                    <div class="zb-desc-box"><span class="zb-name">张惠妹aMEI</span><br><span
+                                            class="zb-desc">台湾歌手张惠妹</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="zb-img-box"><img src="{{ layui.setter.base }}style/res/wy-music/zb/2.jpg"></div>
+                                    <div class="zb-desc-box"><span class="zb-name">张惠妹aMEI</span><br><span
+                                            class="zb-desc">台湾歌手张惠妹</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="zb-img-box"><img src="{{ layui.setter.base }}style/res/wy-music/zb/3.jpg"></div>
+                                    <div class="zb-desc-box"><span class="zb-name">张惠妹aMEI</span><br><span
+                                            class="zb-desc">台湾歌手张惠妹</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="zb-img-box"><img src="{{ layui.setter.base }}style/res/wy-music/zb/4.jpg"></div>
+                                    <div class="zb-desc-box"><span class="zb-name">张惠妹aMEI</span><br><span
+                                            class="zb-desc">台湾歌手张惠妹</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="zb-img-box"><img src="{{ layui.setter.base }}style/res/wy-music/zb/5.jpg"></div>
+                                    <div class="zb-desc-box"><span class="zb-name">张惠妹aMEI</span><br><span
+                                            class="zb-desc">台湾歌手张惠妹</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-container">
+            <div class="footer-content-container">
+                <div class="footer-left-container">
+                    <ul class="line-one">
+                        <li>服务条款</li>
+                        <li>隐私政策</li>
+                        <li>儿童隐私政策</li>
+                        <li>版权投诉</li>
+                        <li>投资者关系</li>
+                        <li>广告合作</li>
+                        <li>廉正举报</li>
+                        <li>联系我们</li>
+                    </ul>
+                    <ul class="line-tow">
+                        <li>网易公司版权所有©1997-2022</li>
+                        <li>杭州乐读科技有限公司运营：浙网文[2021] 1186-054号</li>
+                    </ul>
+                    <ul class="line-three">
+                        <li>粤B2-20090191-18 工业和信息化部备案管理系统网站</li>
+                        <li><img src="{{ layui.setter.base }}style/res/wy-music/police.png"
+                                style="width: 14px;height: 14px;margin-bottom: 4px;">浙公网安备 33010902002564号
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="footer-right-container">
+                    <ul>
+                        <li>
+                            <div class="footer-icon icon1"></div>
+                            <div class="footer-desc">Amped Studio</div>
+                        </li>
+
+                        <li>
+                            <div class="footer-icon icon2"></div>
+                            <div class="footer-desc">用户认证</div>
+                        </li>
+
+                        <li>
+                            <div class="footer-icon icon3"></div>
+                            <div class="footer-desc">独立音乐人</div>
+                        </li>
+
+                        <li>
+                            <div class="footer-icon icon4"></div>
+                            <div class="footer-desc">赞赏</div>
+                        </li>
+
+                        <li>
+                            <div class="footer-icon icon5"></div>
+                            <div class="footer-desc">视频奖励</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </script>
+    </container>
+
+</body>
+
+</html>
+<script>
+    layui.use(['admin'], function () {
+        var $ = layui.$
+            , admin = layui.admin
+            , element = layui.element
+            , router = layui.router();
+
+        window.onload = function () {
+            var colorArray = ['#9dcd90', '#403d5e', '#3f3657', '#b84633', '#5c9bc2'];
+
+            var bgColorDiv = document.getElementsByClassName("images-box-container");
+            var items = document.getElementsByClassName("img-item");
+            var circles = document.getElementsByClassName("img-circle");
+            var leftBtn = document.getElementById("btn-left");
+            var rightBtn = document.getElementById("btn-right");
+            var content = document.querySelector('.img-box');
+            var index = 0;
+            var timer = null;
+
+            //清除class
+            var clearclass = function () {
+                for (let i = 0; i < items.length; i++) {
+                    items[i].className = "img-item";
+                    circles[i].className = "img-circle";
+                    circles[i].setAttribute("num", i);
+                }
+            }
+
+            /*只显示一个class*/
+            function move() {
+                clearclass();
+                items[index].className = "img-item active";
+                circles[index].className = "img-circle img-white";
+                $(".images-box-container").css("background-color", colorArray[index]);
+            }
+
+            //点击右边按钮切换下一张图片
+            rightBtn.onclick = function () {
+                if (index < items.length - 1) {
+                    index++;
+                } else {
+                    index = 0;
+                }
+                move();
+            }
+            //点击左边按钮切换上一张图片
+            leftBtn.onclick = function () {
+                if (index < items.length) {
+                    index--;
+                } else {
+                    index = items.length - 1;
+                }
+                move();
+            }
+            //开始定时器，点击右边按钮，实现轮播
+            timer = setInterval(function () {
+                rightBtn.onclick();
+            }, 1500)
+            //点击圆点时，跳转到对应图片
+            for (var i = 0; i < circles.length; i++) {
+                circles[i].addEventListener("click", function () {
+                    var point_index = this.getAttribute("num");
+                    index = point_index;
+                    move();
+                })
+
+            }
+            //鼠标移入清除定时器，并开启一个三秒的定时器，使慢慢转动
+            content.onmouseover = function () {
+                clearInterval(timer);
+                timer = setInterval(function () {
+                    rightBtn.onclick();
+                }, 3000)
+            }
+
+
+            //鼠标移出又开启定时器
+            content.onmouseleave = function () {
+                clearInterval(timer);
+                timer = setInterval(function () {
+                    rightBtn.onclick();
+                }, 1500)
+            }
+        }
+    });
+</script>
