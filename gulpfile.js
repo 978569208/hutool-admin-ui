@@ -69,8 +69,8 @@ var argv = require('minimist')(process.argv.slice(2), {
       gulp.src('./src/config.js', )
         .pipe(gulp.dest(destDir));
 
-      gulp.src('./src/lib/extend/echarts.js')
-        .pipe(gulp.dest(destDir + '/lib/extend'));
+      gulp.src('./src/lib/**')
+        .pipe(gulp.dest(destDir + '/lib'));
 
       gulp.src('./src/style/res/**/*')
         .pipe(gulp.dest(destDir + '/style/res'));
@@ -84,17 +84,16 @@ var argv = require('minimist')(process.argv.slice(2), {
         .pipe(gulp.dest(destDir + '/json'));
 
       //复制并转义宿主页面
-      gulp.src('./start/index.html')
+      return gulp.src('./index.html')
         .pipe(replace(/\<\!-- clear s --\>([\s\S]*?)\<\!-- clear e --\>/, ''))
         .pipe(replace('//local.res.layui.com/layui/src', 'layui'))
         .pipe(replace("base: '../dev-pro/'", "base: '../dist/'"))
         .pipe(replace('@@version@@', pkg.version))
-        .pipe(gulp.dest('./start'))
         .pipe(gulp.dest(destDir + '/'));
 
       //复制 layui
-      return gulp.src('./start/layui/**')
-        .pipe(gulp.dest(destDir + '/layui'))
+      // return gulp.src('./start/layui/**')
+      //   .pipe(gulp.dest(destDir + '/start/layui'))
     }
   };
 
@@ -126,7 +125,7 @@ gulp.task('build', gulp.series('clear', 'src', 'minjs', 'mincss', 'mv', 'copyCor
 
 gulp.task('server', function () {
   connect.server({
-    root: '',
+    root: 'dist',
     livereload: true,
     port: 8080 //服务器端口
   });
@@ -134,12 +133,12 @@ gulp.task('server', function () {
 
 gulp.task('upload', function (callback) {
   gulp.src('./dist/**')
-      .pipe(sftp(Object.assign({
-          remotePath: '/mydata/nginx/static', // 部署到服务器的路径
-          host: '192.168.154.132', // ip地址
-          user: 'root',
-          pass: 'Hkl123456',
-          port: 22 // 默认是22端口
-      })))
-      callback();
+    .pipe(sftp(Object.assign({
+      remotePath: '/mydata/nginx/static', // 部署到服务器的路径
+      host: '192.168.154.132', // ip地址
+      user: 'root',
+      pass: 'Hkl123456',
+      port: 22 // 默认是22端口
+    })))
+  callback();
 })
