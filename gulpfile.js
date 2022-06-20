@@ -90,10 +90,6 @@ var argv = require('minimist')(process.argv.slice(2), {
         .pipe(replace("base: '../dev-pro/'", "base: '../dist/'"))
         .pipe(replace('@@version@@', pkg.version))
         .pipe(gulp.dest(destDir + '/'));
-
-      //复制 layui
-      // return gulp.src('./start/layui/**')
-      //   .pipe(gulp.dest(destDir + '/start/layui'))
     }
   };
 
@@ -116,9 +112,7 @@ gulp.task('src', function () {
 
 //构建核心源文件
 gulp.task('build', gulp.series('clear', 'src', 'minjs', 'mincss', 'mv', 'copyCore'), function () { //命令：gulp
-  for (var key in task) {
-    task[key]();
-  }
+
 });
 
 
