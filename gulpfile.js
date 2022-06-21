@@ -2,21 +2,22 @@
  layuiAdmin pro 构建
 */
 
-var pkg = require('./package.json');
-var inds = pkg.independents;
+const pkg = require('./package.json');
+const inds = pkg.independents;
 
-var gulp = require('gulp');
-var uglify = require('gulp-uglify');
-var minify = require('gulp-minify-css');
-var concat = require('gulp-concat');
-var rename = require('gulp-rename');
-var replace = require('gulp-replace');
-var header = require('gulp-header');
-var del = require('del');
-var gulpif = require('gulp-if');
-var minimist = require('minimist');
-var connect = require('gulp-connect');
+const gulp = require('gulp');
+const uglify = require('gulp-uglify');
+const minify = require('gulp-minify-css');
+const concat = require('gulp-concat');
+const rename = require('gulp-rename');
+const replace = require('gulp-replace');
+const header = require('gulp-header');
+const del = require('del');
+const gulpif = require('gulp-if');
+const minimist = require('minimist');
+const connect = require('gulp-connect');
 const sftp = require('gulp-sftp-up4');
+const sass = require('gulp-sass')(require('sass'));
 
 //获取参数
 var argv = require('minimist')(process.argv.slice(2), {
@@ -37,34 +38,37 @@ var argv = require('minimist')(process.argv.slice(2), {
   task = {
     //压缩 JS
     minjs: function () {
-        var src = [
-          './src/**/*.js', '!./src/config.js', '!./src/lib/extend/echarts.js'
-        ];
+      var src = [
+        './src/**/*.js', '!./src/config.js', '!./src/lib/extend/echarts.js'
+      ];
 
-        return gulp.src(src).pipe(uglify())
-          .pipe(header.apply(null, note))
-          .pipe(gulp.dest(destDir));
-      }
-
-      //压缩 CSS
-      ,
+      return gulp.src(src).pipe(uglify())
+        .pipe(header.apply(null, note))
+        .pipe(gulp.dest(destDir));
+    },
+    convertcss: function () {
+      return gulp.src('src/**/*.scss')
+        .pipe(sass())
+        .pipe(minify({
+          compatibility: 'ie7'
+        }))
+        .pipe(gulp.dest(destDir))
+    },
+    //压缩 CSS
     mincss: function () {
-        var src = [
-            './src/**/*.css'
-          ],
-          noteNew = JSON.parse(JSON.stringify(note));
+      var src = [
+          './src/**/*.css'
+        ],
+        noteNew = JSON.parse(JSON.stringify(note));
+      noteNew[1].js = '';
+      return gulp.src(src).pipe(minify({
+          compatibility: 'ie7'
+        })).pipe(header.apply(null, noteNew))
+        .pipe(gulp.dest(destDir));
+    },
 
+    //复制文件夹
 
-        noteNew[1].js = '';
-
-        return gulp.src(src).pipe(minify({
-            compatibility: 'ie7'
-          })).pipe(header.apply(null, noteNew))
-          .pipe(gulp.dest(destDir));
-      }
-
-      //复制文件夹
-      ,
     mv: function () {
       gulp.src('./src/config.js', )
         .pipe(gulp.dest(destDir));
@@ -101,17 +105,12 @@ gulp.task('clear', function (cb) {
 
 gulp.task('minjs', task.minjs);
 gulp.task('mincss', task.mincss);
+gulp.task('convertcss', task.convertcss);
 gulp.task('mv', task.mv);
 gulp.task('copyCore', task.copyCore);
 
-gulp.task('src', function () {
-  //命令：gulp src
-  return gulp.src('./dev-pro/**/*')
-    .pipe(gulp.dest('./src'));
-});
-
 //构建核心源文件
-gulp.task('build', gulp.series('clear', 'src', 'minjs', 'mincss', 'mv', 'copyCore'), function () { //命令：gulp
+gulp.task('build', gulp.series('clear', 'minjs', 'convertcss', 'mincss', 'mv', 'copyCore'), function () { //命令：gulp
 
 });
 
