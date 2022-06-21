@@ -17,12 +17,12 @@
       "jump": "home/homepage2"
     }]
   }, {
+    "name": "自定义界面",
     "title": "页面",
     "icon": "layui-icon-home",
     "list": [{
       "name": "homepage1",
       "title": "小米",
-      "jump": "/",
       "list": [{
         "name": "mi-login",
         "title": "小米登录页面",
@@ -35,7 +35,6 @@
     }, {
       "name": "wyy-music",
       "title": "网易云",
-      "jump": "/",
       "list": [{
         "name": "wyy-music",
         "title": "网易云音乐主页",
