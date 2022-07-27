@@ -1,0 +1,154 @@
+<script type="text/html" template>
+    <link rel="stylesheet" href="{{ layui.setter.base }}style/function-list/merge_table.css?v={{ layui.admin.v }}-1" media="all">
+</script>
+<style>
+    .layui-table td,
+    .layui-table th,
+    .layui-table-view {
+        border-top: 1px solid #B0B0B0 !important;
+        border-left: 1px solid #B0B0B0 !important;
+        border-right: 1px solid #B0B0B0 !important;
+    }
+
+    .layui-form-select dl {
+        z-index: 9999;
+    }
+
+    #function-list .layui-table td {
+        padding: 5px;
+        min-height: 15px;
+    }
+</style>
+
+<div id="function-list" class="function-list">
+    <div class="search-box layui-form">
+        <div class="search-item">
+            <input type="text" placeholder="请输入项目名称" id="fxmmc" autocomplete="off" class="layui-input"
+                style="margin-left: 10px">
+        </div>
+        <div class="search-item">
+            <input type="text" placeholder="请输入系统名称" id="fxtmc" autocomplete="off" class="layui-input"
+                style="margin-left: 10px">
+        </div>
+        <div class="search-item search-btn">
+            <input type="text" placeholder="请输入功能名称" id="fgnmc" autocomplete="off" class="layui-input"
+                style="margin-left: 10px">
+            <div id="search">
+                <img src="./dist/modules/finalInspectionApply/images/icon_search.png" />
+            </div>
+        </div>
+        <div class="search-item">
+            <button id="exportExcel" type="button" class="layui-btn layui-btn-normal">导出功能清单</button>
+        </div>
+        <div class="search-item">
+            <button id="importExcel" type="button" class="layui-btn layui-btn-normal">导入更新清单</button>
+        </div>
+    </div>
+    <div class="table-container">
+        <div class="div-header-container">
+            <table id="table_header1" class="layui-table page-content-table fix-table-header1" lay-even=""
+                lay-skin="row">
+                <colgroup>
+                    <col width="5%">
+                    <col width="12%">
+                    <col width="12%">
+                    <col width="11%">
+                    <col width="10%">
+                    <col width="10%">
+                    <col width="10%">
+                    <col width="10%">
+                    <col width="10%">
+                    <col width="10%">
+                </colgroup>
+                <tr>
+                    <th><span style="visibility: hidden">序号</span></th>
+                    <th>项目数：<span id="xms">0</span></th>
+                    <th>系统数：<span id="xts">0</span></th>
+                    <th><span style="visibility: hidden">处室名称</span></th>
+                    <th><span style="visibility: hidden">建设内容</span></th>
+                    <th><span style="visibility: hidden">模块名称</span></th>
+                    <th><span style="visibility: hidden">一级功能</span></th>
+                    <th><span style="visibility: hidden">二级功能</span></th>
+                    <th><span style="visibility: hidden">三级功能</span></th>
+                    <th><span style="visibility: hidden">备注</span></th>
+                </tr>
+            </table>
+            <table id="table_header2" class="layui-table page-content-table fix-table-header" lay-even=""
+                lay-skin="row">
+                <colgroup>
+                    <col width="5%">
+                    <col width="12%">
+                    <col width="12%">
+                    <col width="11%">
+                    <col width="10%">
+                    <col width="10%">
+                    <col width="10%">
+                    <col width="10%">
+                    <col width="10%">
+                    <col width="10%">
+                </colgroup>
+                <tr>
+                    <th>序号</th>
+                    <th>项目名称</th>
+                    <th>系统名称</th>
+                    <th>处室名称</th>
+                    <th>建设内容</th>
+                    <th>模块名称</th>
+                    <th>一级功能</th>
+                    <th>二级功能</th>
+                    <th>三级功能</th>
+                    <th>备注</th>
+                </tr>
+            </table>
+        </div>
+        <div class="div-content-container">
+            <table id="table_data" class="layui-table page-content-table fix-table-data" lay-even="" lay-skin="row">
+                <colgroup>
+                    <col width="5%">
+                    <col width="12%">
+                    <col width="12%">
+                    <col width="11%">
+                    <col width="10%">
+                    <col width="10%">
+                    <col width="10%">
+                    <col width="10%">
+                    <col width="10%">
+                    <col width="10%">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th id="index-width">序号</th>
+                        <th id="fxmmc-width">项目名称</th>
+                        <th id="fxtmc-width">系统名称</th>
+                        <th id="fcsmc-width">处室名称</th>
+                        <th id="fjsnr-width">建设内容</th>
+                        <th id="fmkmc-width">模块名称</th>
+                        <th id="fyjgn-width">一级功能</th>
+                        <th id="fejgn-width">二级功能</th>
+                        <th id="fsjgn-width">三级功能</th>
+                        <th id="fbz-width">备注</th>
+                    </tr>
+                </thead>
+                <tbody id="ltyqd-data-table-tbody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="foot-container">
+        <div class="foot-left-container">
+            <span class="foot-time">最近更新时间：<span id="newSubmitDate">YYYY-MM-DD hh:mm:ss</span></span>
+            <span id="viewHistory" class="foot-history-version">查看历史版本</span>
+        </div>
+        <div class="foot-right-container">
+            <button id="tempSave" type="button" class="layui-btn layui-btn-normal">暂存</button>
+            <button id="submit" class="layui-btn layui-btn-normal">提交更新</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    layui.use(['function-list/merge_table'], function () {
+        var merge_table = layui.merge_table;
+        merge_table.doInit();
+    });
+</script>

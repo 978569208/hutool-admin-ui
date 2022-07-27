@@ -41,5 +41,18 @@
         "jump": "wy-music/main"
       }]
     }]
+  }, {
+    "name": "自定义功能",
+    "title": "功能",
+    "icon": "layui-icon-home",
+    "list": [{
+      "name": "homepage1",
+      "title": "功能清单",
+      "list": [{
+        "name": "function-merge-table",
+        "title": "表格自动合并单元格",
+        "jump": "function-list/merge_table"
+      }]
+    }]
   }]
 }

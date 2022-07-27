@@ -1,0 +1,128 @@
+#function-list {
+    height: calc(100% - 50px);
+    width: 100%;
+  
+    .search-box {
+      margin: 20px 30px;
+      display: flex;
+      justify-content: end;
+      z-index: 99999;
+  
+      .search-item {
+        margin-left: 20px;
+      }
+  
+      .search-item:first-child {
+        margin-left: 0px;
+      }
+  
+      .search-btn {
+        display: flex;
+        flex-direction: row;
+      }
+  
+      #search {
+        background: #506eda;
+        width: 60px;
+        height: 38px;
+        cursor: pointer;
+        position: relative;
+  
+        img {
+          width: 14px;
+          height: 14px;
+          margin-right: 6px;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          -webkit-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+        }
+      }
+    }
+  
+    .table-container {
+      margin-bottom: 20px;
+      padding: 0px 20px;
+      height: calc(100% - 50px);
+      overflow: scroll;
+  
+      .div-header-container {
+        position: fixed;
+        width: calc(100% - 40px);
+        z-index: 999;
+  
+        .fix-table-header1 {
+          th {
+            border-bottom: none !important;
+          }
+        }
+      }
+  
+      .div-content-container {
+        .my-table-cell {
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+          cursor: pointer;
+        }
+      }
+  
+      .page-content-table {
+        margin: 0px;
+        border: 1px solid #B0B0B0;
+        min-width: 820px;
+        border-bottom: none !important;
+  
+        td {
+          border: 1px solid #B0B0B0;
+          border-right: 1px solid #B0B0B0;
+          height: 15px;
+        }
+  
+        th {
+          border: 1px solid #B0B0B0;
+          font-weight: bold;
+          color: black;
+          text-align: center;
+          //background: #f5f7fa;
+        }
+      }
+  
+      .div-content-container {
+        margin-top: 39px;
+      }
+    }
+  
+    .foot-container {
+      height: 30px;
+      padding: 10px 10px 30px 10px;
+      display: flex;
+      justify-content: space-between;
+      line-height: 50px;
+      border-top: 1px solid #eee;
+      //box-shadow: 0 0 2px 0px rgba(0, 0, 0, 0.8);
+      position: absolute;
+      bottom: 0px;
+      width: calc(100% - 20px);
+      z-index: 999;
+      background: white;
+  
+  
+      .foot-left-container {
+        width: 500px;
+  
+        .foot-time {
+          color: #a7a7a7;
+          font-size: 12px;
+        }
+  
+        .foot-history-version {
+          margin-left: 10px;
+          color: #58abef;
+          cursor: pointer;
+        }
+      }
+    }
+  }
