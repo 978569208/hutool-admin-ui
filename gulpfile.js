@@ -18,6 +18,10 @@ const minimist = require('minimist');
 const connect = require('gulp-connect');
 const sftp = require('gulp-sftp-up4');
 const sass = require('gulp-sass')(require('sass'));
+const source = require('vinyl-source-stream');
+const tap = require('gulp-tap');
+const path = require('path');
+const vinylBuffer = require('vinyl-buffer');
 
 //获取参数
 var argv = require('minimist')(process.argv.slice(2), {
@@ -95,44 +99,51 @@ var argv = require('minimist')(process.argv.slice(2), {
         .pipe(replace('@@version@@', pkg.version))
         .pipe(gulp.dest(destDir + '/'));
     },
-    compilemodule: () => {
-      var modulesDir = [];
+    compilemodule: function () {
       /*编译layui模块*/
-      let fileContents = "var modulesStr = '";
-      modulesDir.push('./controller/**/*.js');
-      return src(modulesDir)
-          .pipe(tap(function (file) {
-              console.log("读取模块：" + file.path);
+      let array = [];
+      return gulp.src('./src/controller/**/*.js')
+        .pipe(tap(function (file) {
+          console.log("读取模块：" + file.path);
+          let dir = path.dirname(file.path),
+            basename = path.basename(file.path),
+            modulesKeyWord = "/controller",
+            xiegan = "/",
+            stream = source('modules.js'),
+            endStr = ".js";
 
-              let dir = path.dirname(file.path),
-                  basename = path.basename(file.path),
-                  pointerKeyword = ",'",
-                  modulesKeyWord = "/controller/",
-                  xiegan = "/",
-                  stream = source('modules.js'),
-                  endStr = ".js";
+          dir = dir.replace(/\\/g, xiegan);
+          dir = dir.substring(dir.indexOf(modulesKeyWord), dir.length);
+          dir = dir.replace(modulesKeyWord, "");
+          if (basename && basename !== "") {
+            let resultLength = basename.length - endStr.length;
+            if (resultLength >= 0 && basename.lastIndexOf(endStr) === resultLength) {
+              basename = basename.substring(0, basename.lastIndexOf(endStr));
+            }
 
-              dir = dir.replace(/\\/g, xiegan);
-              dir = dir.substring(dir.indexOf(modulesKeyWord));
+            if (dir == '') {
+              array.push({
+                key: basename,
+                value: basename
+              });
+            } else {
+              array.push({
+                key: basename,
+                value: dir + xiegan + basename
+              });
+            }
 
-              dir = dir.replace(modulesKeyWord, "");
-              if (basename && basename !== "") {
-                  let resultLength = basename.length - endStr.length;
-                  if (resultLength >= 0 && basename.lastIndexOf(endStr) === resultLength) {
-                      basename = basename.substring(0, basename.lastIndexOf(endStr));
-                  }
-                  fileContents += dir + xiegan + basename + pointerKeyword;
+            stream.write("var modulesArray = " + JSON.stringify(array)) + ";";
+            process.nextTick(function () {
+              // 在下一次处理循环中结束 stream
+              stream.end();
+            });
+            stream.pipe(vinylBuffer())
+              .pipe(gulp.dest(destDir + '/'));
+          }
+        }))
 
-                  stream.write(fileContents);
-                  process.nextTick(function () {
-                      // 在下一次处理循环中结束 stream
-                      stream.end();
-                  });
-                  stream.pipe(vinylBuffer())
-                      .pipe(dest(Config.distDir + 'config/'));
-              }
-          }))
-  }
+    }
   };
 
 
@@ -146,9 +157,10 @@ gulp.task('mincss', task.mincss);
 gulp.task('convertcss', task.convertcss);
 gulp.task('mv', task.mv);
 gulp.task('copyCore', task.copyCore);
+gulp.task('compilemodule', task.compilemodule);
 
 //构建核心源文件
-gulp.task('build', gulp.series('clear', 'minjs', 'convertcss', 'mincss', 'mv', 'copyCore'), function () { //命令：gulp
+gulp.task('build', gulp.series('clear', 'minjs', 'convertcss', 'mincss', 'mv', 'copyCore', 'compilemodule'), function () { //命令：gulp
 
 });
 
