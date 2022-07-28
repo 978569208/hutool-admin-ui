@@ -94,7 +94,45 @@ var argv = require('minimist')(process.argv.slice(2), {
         .pipe(replace("base: '../dev-pro/'", "base: '../dist/'"))
         .pipe(replace('@@version@@', pkg.version))
         .pipe(gulp.dest(destDir + '/'));
-    }
+    },
+    compilemodule: () => {
+      var modulesDir = [];
+      /*编译layui模块*/
+      let fileContents = "var modulesStr = '";
+      modulesDir.push('./controller/**/*.js');
+      return src(modulesDir)
+          .pipe(tap(function (file) {
+              console.log("读取模块：" + file.path);
+
+              let dir = path.dirname(file.path),
+                  basename = path.basename(file.path),
+                  pointerKeyword = ",'",
+                  modulesKeyWord = "/controller/",
+                  xiegan = "/",
+                  stream = source('modules.js'),
+                  endStr = ".js";
+
+              dir = dir.replace(/\\/g, xiegan);
+              dir = dir.substring(dir.indexOf(modulesKeyWord));
+
+              dir = dir.replace(modulesKeyWord, "");
+              if (basename && basename !== "") {
+                  let resultLength = basename.length - endStr.length;
+                  if (resultLength >= 0 && basename.lastIndexOf(endStr) === resultLength) {
+                      basename = basename.substring(0, basename.lastIndexOf(endStr));
+                  }
+                  fileContents += dir + xiegan + basename + pointerKeyword;
+
+                  stream.write(fileContents);
+                  process.nextTick(function () {
+                      // 在下一次处理循环中结束 stream
+                      stream.end();
+                  });
+                  stream.pipe(vinylBuffer())
+                      .pipe(dest(Config.distDir + 'config/'));
+              }
+          }))
+  }
   };
 
 

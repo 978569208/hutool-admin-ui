@@ -11,6 +11,7 @@ layui.extend({
   setter: 'config' //配置文件
   ,admin: 'lib/admin' //核心模块
   ,view: 'lib/view' //核心模块
+  ,merge_table: 'function-list/merge_table'
 }).define(['setter', 'admin'], function(exports){
   var setter = layui.setter
   ,element = layui.element

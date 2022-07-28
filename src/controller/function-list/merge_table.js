@@ -493,7 +493,7 @@ layui.define(['table', 'form', 'element'], function (exports) {
 			for (var j = 0; j < columnsName.length; j++) {
 				var tdCurArr = trArr.eq(i).find("td").eq(j + 1);
 				tdCurArr.each(function () {
-					console.log($(this).find("div").eq(0).html())
+
 					$(this).find("div").eq(0).css("width", widthArray[j + 1] + 'px');
 				});
 			}
@@ -502,7 +502,6 @@ layui.define(['table', 'form', 'element'], function (exports) {
 
 
 	function initTable(data) {
-		console.log(data);
 		var html = "";
 		var xmsSet = new Set();
 		var xtsSet = new Set();
@@ -585,8 +584,6 @@ layui.define(['table', 'form', 'element'], function (exports) {
 						});
 					}
 				}
-
-				console.log(mergeMap);
 			} else {
 				for (var i = 1; i < data.length; i++) {
 					var tdCurArr = trArr.eq(i).find("td").eq(columsIndex[k]);
@@ -658,6 +655,8 @@ layui.define(['table', 'form', 'element'], function (exports) {
 	}
 
 	exports('merge_table', {
-		doInit: doInit()
+		doInit: function () {
+			doInit();
+		}
 	})
 });
