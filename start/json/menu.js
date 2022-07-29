@@ -52,6 +52,10 @@
         "name": "function-merge-table",
         "title": "表格自动合并单元格",
         "jump": "function-list/merge_table"
+      }, {
+        "name": "function-merge-table",
+        "title": "表格自动合并单元格2",
+        "jump": "function-list/merge_table2"
       }]
     }]
   }]
