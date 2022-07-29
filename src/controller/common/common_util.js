@@ -106,12 +106,80 @@ layui.define(['table', 'form', 'element'], function (exports) {
 		return false;
 	}
 
+	function request(url, data = {}, type = "POST") {
+		return new Promise((resolve, reject) => {
+			let loading;
+			$.ajax({
+				type: type,
+				url: url,
+				data: JSON.stringify(data),
+				dataType: "json",
+				contentType: "application/json",
+				beforeSend: function () {
+					loading = layer.msg(`<span>加载中...</span>`, {
+						icon: 16,
+						shade: 0.3,
+						time: 0
+					});
+				},
+				success: function (data) {
+					resolve(data);
+					layer.close(loading);
+				},
+				error: function (err) {
+					reject(err);
+					layer.close(loading);
+				}
+			})
+		})
+	}
+
+
+	function loadTableData(d, version) {
+		var promise = request(layui.cache.ctx + layuiApp.config.pcApi +
+			"/ltyqd/function-list/getSubmitListData", {
+				changeOrgId: d.changeOrgId,
+				queryFlag: d.queryFlag,
+				version: version
+			}, "POST"); //注意这里返回的是promise对象
+
+		promise.then(result => { //f1为第一个回调处理函数
+			if (result.status == 0) {
+				initData(result.data);
+			} else {
+				layer.msg("加载失败！", {
+					icon: 2
+				});
+			}
+
+			return request(layui.cache.ctx + layuiApp.config.pcApi +
+				"/ltyqd/function-list/getSubmitListData", {
+					changeOrgId: d.changeOrgId,
+					queryFlag: d.queryFlag,
+					version: version
+				}, "POST");
+		}).then(result => { //f2为第二个回调处理函数
+			if (result.status == 0) {
+				initData(result.data);
+			} else {
+				layer.msg("加载失败！", {
+					icon: 2
+				});
+			}
+		}).catch(err => {
+			console.log(err);
+		});
+	}
+
 	exports('common_util', {
 		getNotEmptyStr: function (str) {
 			return getNotEmptyStr(str);
 		},
 		mergeTable: function (data, tableId, columsName, columsIndex) {
 			mergeTable(data, tableId, columsName, columsIndex);
+		},
+		request: function (url, data, type) {
+			request(url, data, type)
 		}
 	})
 });
