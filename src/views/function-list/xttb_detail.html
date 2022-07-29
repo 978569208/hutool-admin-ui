@@ -1,0 +1,814 @@
+<script type="text/html" template>
+    <link rel="stylesheet" href="{{ layui.setter.base }}style/function-list/xttb_detail.css?v={{ layui.admin.v }}-1" media="all">
+</script>
+<style>
+    .layui-timeline-item:before {
+        content: "";
+        position: absolute;
+        left: 20px;
+        z-index: 0;
+        width: 1px;
+        height: 100%;
+        margin-top: 40px;
+    }
+
+    .line-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 40px;
+        background-color: #B0B0B0;
+        text-align: center;
+        line-height: 40px;
+        display: inline-block;
+        color: white;
+        cursor: pointer;
+    }
+
+    .line-item-select {
+        display: inline-block;
+        width: 90px;
+        height: 40px;
+        border: #506eda 1px solid;
+        border-radius: 5px;
+        background-color: #d2dcfc;
+        color: #506eda;
+        text-align: center;
+        padding: 0px;
+        margin-left: 20px;
+        line-height: 40px;
+    }
+
+    .line-icon-select {
+        width: 40px;
+        height: 40px;
+        border-radius: 40px;
+        background-color: #506eda;
+        text-align: center;
+        line-height: 40px;
+        display: inline-block;
+        color: white;
+    }
+
+    .line-item {
+        display: inline-block;
+        width: 90px;
+        height: 40px;
+        text-align: center;
+        padding: 0px;
+        margin-left: 20px;
+        line-height: 40px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .layui-timeline-item {
+        position: relative;
+        padding-bottom: 40px;
+    }
+
+    .layui-timeline-item:before {
+        content: "";
+        position: absolute;
+        left: 20px;
+        z-index: 0;
+        width: 1px;
+        height: 100%;
+        border-left: 1px dashed #B0B0B0;
+        margin-top: 40px;
+    }
+
+    .item-required:after {
+        content: "*";
+        color: red;
+        position: absolute;
+        top: 25px;
+        left: 5px;
+    }
+
+    .item-required-black:after {
+        content: "·";
+        color: black;
+        position: absolute;
+        top: 10px;
+        left: 20px;
+    }
+
+    .layui-table td,
+    .layui-table th,
+    .layui-table-view {
+        border-top: 1px solid #B0B0B0 !important;
+        border-left: 1px solid #B0B0B0 !important;
+        border-right: 1px solid #B0B0B0 !important;
+    }
+</style>
+
+<div id="xttb_detail">
+    <div class="page-top">
+        <div class="top-block">
+            <div>
+                <span class="">
+                    <a style="color: #4872f3;cursor: pointer" id="goBack">
+                        < 返回</a>
+                </span>
+                <h3>应用系统详情</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-center">
+        <div class="page-left">
+            <div class="page-left-top" style="overflow-y: scroll;overflow-x: hidden;" id="pageContent">
+                <div class="page-title">
+                    <div class="title-name">
+                        <label data-name="fxtmc"></label>
+                    </div>
+                    <div class="title-info">
+                        运行状态：<label id="fzt" data-name="fzt" dic="fzt"></label>
+                    </div>
+
+                    <!--                    <div class="title-info">-->
+                    <!--                        日访问量：<label>1222</label>-->
+                    <!--                    </div>-->
+                </div>
+                <!--基本信息-->
+                <div class="page-content" id="page-content1" index="1">
+                    <div class="page-content-title">基础信息</div>
+                    <div class="page-content-container">
+                        <table class="layui-table page-content-table">
+                            <tr>
+                                <th class="td-bg-color item-required">
+                                    系统所属部门社会信用代码
+                                </th>
+                                <td>
+                                    <label data-name="fxtssbmshxydm"></label>
+                                </td>
+
+                                <th class="td-bg-color item-required">
+                                    所属部门
+                                </th>
+                                <td>
+                                    <label data-name="fssbm"></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="td-bg-color item-required">
+                                    信息系统名称
+                                </th>
+                                <td>
+                                    <label data-name="fxtmc"></label>
+                                </td>
+
+                                <th class="td-bg-color item-required">
+                                    信息系统类型
+                                </th>
+                                <td>
+                                    <label data-name="type" dic="type"></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="td-bg-color item-required">
+                                    系统应用领域
+                                </th>
+                                <td colspan="3">
+                                    <label data-name="fgnmc"></label>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                </div>
+                <!--项目信息-->
+                <div class="page-content" id="page-content2" index="2">
+                    <div class="page-content-title">项目信息</div>
+                    <div id="xmxxList">
+
+                    </div>
+                    <!--<div class="page-content-container">
+                        <table class="layui-table page-content-table" id="xmxxTable">
+                            <tr>
+                                <th class="td-bg-color item-required">
+                                    项目立项名称
+                                </th>
+                                <td>
+                                    <label data-name="flxmc"></label>
+                                </td>
+
+                                <th class="td-bg-color item-required">
+                                    项目批复文号
+                                </th>
+                                <td>
+                                    <label data-name="fxmpfwh"></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="td-bg-color item-required">
+                                    项目立项审批部门
+                                </th>
+                                <td>
+                                    <label data-name="flxspbm"></label>
+                                </td>
+
+                                <th class="td-bg-color item-required">
+                                    项目立项审批日期
+                                </th>
+                                <td>
+                                    <label data-name="flxsprq"></label>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>-->
+
+                </div>
+                <!--部门信息-->
+                <div class="page-content" id="page-content3" index="3">
+                    <div class="page-content-title">部门信息</div>
+                    <div class="page-content-container">
+                        <table class="layui-table page-content-table">
+                            <tr>
+                                <th class="td-bg-color item-required">
+                                    归口业务处室
+                                </th>
+                                <td>
+                                    <label data-name="fgkywcs"></label>
+                                </td>
+
+                                <th class="td-bg-color item-required">
+                                    本单位业务负责人
+                                </th>
+                                <td>
+                                    <label data-name="fsydwfzr"></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="td-bg-color item-required">
+                                    本单位业务系统负责人联系电话
+                                </th>
+                                <td>
+                                    <label data-name="fsydwMobile"></label>
+                                </td>
+
+                                <th class="td-bg-color item-required">
+                                    本单位业务系统负责人电子邮箱
+                                </th>
+                                <td>
+                                    <label data-name="fsydwMail"></label>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                </div>
+                <!--系统信息-->
+                <div class="page-content" id="page-content4" index="4">
+                    <div class="page-content-title">系统信息</div>
+                    <div class="page-content-container">
+                        <table class="layui-table page-content-table">
+                            <tr>
+                                <th class="td-bg-color item-required">
+                                    是否为僵尸系统
+                                </th>
+                                <td>
+                                    <label data-name="fjsxtFlag" dic="fjsxtFlag"></label>
+                                </td>
+
+                                <th class="td-bg-color item-required">
+                                    系统开始使用日期
+                                </th>
+                                <td>
+                                    <label data-name="startDate"></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="td-bg-color item-required">
+                                    系统停止使用日期
+                                </th>
+                                <td>
+                                    <label data-name="endDate"></label>
+                                </td>
+
+                                <th class="td-bg-color item-required">
+                                    建设资金来源
+                                </th>
+                                <td>
+                                    <label data-name="fzjly" dic="fzjly"></label>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th class="td-bg-color item-required">
+                                    使用范围-用户
+                                </th>
+                                <td>
+                                    <label data-name="fsyyhfw" dic="fsyyhfw"></label>
+                                </td>
+
+                                <th class="td-bg-color item-required">
+                                    使用范围-区域
+                                </th>
+                                <td>
+                                    <label data-name="fsyfw" dic-more="fsyfw"></label>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th class="td-bg-color item-required">
+                                    建设层级
+                                </th>
+                                <td>
+                                    <label data-name="fjscj" dic="fjscj"></label>
+                                </td>
+
+                                <th class="td-bg-color item-required">
+                                    对外提供的ip
+                                </th>
+                                <td>
+                                    <label data-name="fdwIp"></label>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th class="td-bg-color item-required">
+                                    对外提供的URL地址
+                                </th>
+                                <td>
+                                    <label data-name="fdwUrl"></label>
+                                </td>
+
+                                <th class="td-bg-color item-required">
+                                    是否有独立的APP
+                                </th>
+                                <td>
+                                    <label data-name="appFlag" dic="appFlag"></label>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th class="td-bg-color item-required">
+                                    建设方式
+                                </th>
+                                <td colspan="3">
+                                    <label data-name="fjsms" dic="fjsms"></label>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                </div>
+                <!--资源信息-->
+                <div class="page-content" id="page-content5" index="5">
+                    <div class="page-content-title">资源信息</div>
+                    <div class="page-content-container">
+                        <table class="layui-table page-content-table">
+                            <tr>
+                                <th class="td-bg-color item-required">
+                                    系统部署情况
+                                </th>
+                                <td>
+                                    <label data-name="fbsqk" dic="fbsqk"></label>
+                                </td>
+
+                                <th class="td-bg-color item-required">
+                                    数据规模（G）
+                                </th>
+                                <td>
+                                    <label data-name="fsjgm"></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="td-bg-color item-required">
+                                    数据月增长情况（M）
+                                </th>
+                                <td>
+                                    <label data-name="fsjyzz"></label>
+                                </td>
+
+                                <th class="td-bg-color item-required">
+                                    存量数据时间范围
+                                </th>
+                                <td>
+                                    <label data-name="dataDateRange"></label>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                </div>
+                <!--等保信息-->
+                <div class="page-content" id="page-content6" index="6">
+                    <div class="page-content-title">等保信息</div>
+                    <div class="page-content-container">
+                        <table class="layui-table page-content-table">
+                            <tr>
+                                <th class="td-bg-color item-required">
+                                    等保等级
+                                </th>
+                                <td>
+                                    <label data-name="fdjbh" dic="fdjbh"></label>
+                                </td>
+
+                                <th class="td-bg-color item-required">
+                                    等保备案时间
+                                </th>
+                                <td>
+                                    <label data-name="fdbbaTime"></label>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="page-content-title-black"><label class="item-required-black">等保测评情况</label></div>
+                    <div class="page-content-container" style="padding-left: 30px">
+                        <table class="layui-table page-content-table">
+                            <thead>
+                                <th class="td-bg-color" style="width: 10%">
+                                    序号
+                                </th>
+                                <th class="td-bg-color item-required" style="width: 25%">
+                                    等保测评机构
+                                </th>
+                                <th class="td-bg-color item-required" style="width: 25%">
+                                    等保测评时间
+                                </th>
+
+                                <th class="td-bg-color item-required" style="width: 25%">
+                                    等保测评得分
+                                </th>
+
+                                <th class="td-bg-color item-required" style="width: 25%">
+                                    是否有密码测评
+                                </th>
+                            </thead>
+                            <tbody id="dbcpqkList">
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!--厂商信息-->
+                <div class="page-content" id="page-content7" index="7">
+                    <div class="page-content-title">厂商信息</div>
+                    <div id="csxxList">
+
+                    </div>
+                </div>
+            </div>
+            <div class="page-left-bottom">
+                <div class="layui-row">
+                    <button type="button" class="layui-btn layui-btn-primary fill-enabled" style="display: none"
+                        id="edit">修改
+                    </button>
+                    <button type="button" class="layui-btn layui-btn-primary fill-enabled" style="display: none"
+                        id="whcpxxBtn">
+                        维护测评信息
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-right">
+            <div class="layui-row" style="height: 20px;font-weight: bold;padding: 10px">
+                信息导航
+            </div>
+            <div class="layui-row" style=";padding: 20px">
+                <ul class="layui-timeline">
+                    <li class="layui-timeline-item">
+                        <div class="line-icon line-icon-select" index="1">
+                            1
+                        </div>
+                        <div class="line-item  line-item-select" index="1">
+                            基础信息
+                        </div>
+                    </li>
+
+                    <li class="layui-timeline-item">
+                        <div class="line-icon" index="2">
+                            2
+                        </div>
+                        <div class="line-item" index="2">
+                            项目信息
+                        </div>
+                    </li>
+
+                    <li class="layui-timeline-item">
+                        <div class="line-icon" index="3">
+                            3
+                        </div>
+                        <div class="line-item" index="3">
+                            部门信息
+                        </div>
+                    </li>
+                    <li class="layui-timeline-item">
+                        <div class="line-icon" index="4">
+                            4
+                        </div>
+
+                        <div class="line-item" index="4">
+                            系统信息
+                        </div>
+                    </li>
+
+                    <li class="layui-timeline-item">
+                        <div class="line-icon" index="5">
+                            5
+                        </div>
+
+                        <div class="line-item" index="5">
+                            资源信息
+                        </div>
+                    </li>
+
+                    <li class="layui-timeline-item">
+                        <div class="line-icon" index="6">
+                            6
+                        </div>
+
+                        <div class="line-item" index="6">
+                            等保信息
+                        </div>
+                    </li>
+
+                    <li class="layui-timeline-item">
+                        <div class="line-icon" index="7">
+                            7
+                        </div>
+
+                        <div class="line-item" index="7">
+                            厂商信息
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<noscript id="xmxxModel">
+    <div class="page-content-title-black"><label class="item-required-black">xmxxIndex</label></div>
+    <div class="page-content-container" style="padding-left: 30px">
+        <table class="layui-table page-content-table">
+            <tr>
+                <th class="td-bg-color item-required">
+                    项目立项名称
+                </th>
+                <td>
+                    flxmc
+                </td>
+
+                <th class="td-bg-color item-required">
+                    项目批复文号
+                </th>
+                <td>
+                    fxmpfwh
+                </td>
+            </tr>
+            <tr>
+                <th class="td-bg-color item-required">
+                    项目立项审批部门
+                </th>
+                <td>
+                    flxspbm
+                </td>
+
+                <th class="td-bg-color item-required">
+                    项目立项审批日期
+                </th>
+                <td>
+                    flxsprq
+                </td>
+            </tr>
+        </table>
+    </div>
+</noscript>
+
+<noscript id="csxxModel">
+    <div class="page-content-title-black"><label class="item-required-black">csxxIndex</label></div>
+    <div class="page-content-container" style="padding-left: 30px">
+        <table class="layui-table page-content-table">
+            <tr>
+                <th class="td-bg-color item-required">
+                    系统开发厂商
+                </th>
+                <td>
+                    fkfcs
+                </td>
+
+                <th class="td-bg-color item-required">
+                    厂商联系人
+                </th>
+                <td>
+                    fkfcslxr
+                </td>
+            </tr>
+            <tr>
+                <th class="td-bg-color item-required">
+                    厂商联系方式
+                </th>
+                <td>
+                    fkfcslxfs
+                </td>
+
+                <th class="td-bg-color item-required">
+                    系统运维厂商
+                </th>
+                <td>
+                    fywcs
+                </td>
+            </tr>
+
+            <tr>
+                <th class="td-bg-color item-required">
+                    厂商联系人
+                </th>
+                <td>
+                    fywcslxr
+                </td>
+
+                <th class="td-bg-color item-required">
+                    厂商联系方式
+                </th>
+                <td>
+                    fywcslxfs
+                </td>
+            </tr>
+        </table>
+    </div>
+</noscript>
+<noscript id="lay-whcpxx">
+    <style type="text/css">
+        .layui-form-label {
+            float: left;
+            display: block;
+            padding: 9px 15px;
+            width: 100px;
+            font-weight: 400;
+            line-height: 20px;
+            text-align: right;
+        }
+
+        .layui-input-block {
+            margin-left: 140px;
+            min-height: 36px;
+            width: 200px;
+        }
+
+        .layui-card-footer {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .layui-form-my {
+            margin: auto;
+            width: 70%;
+        }
+
+        .layui-input-my {
+            width: 70%;
+            margin-left: 10px;
+        }
+
+        .tip-item-required:after {
+            content: "*";
+            color: red;
+            position: absolute;
+            top: 5px;
+            left: 5px;
+        }
+
+        .layui-form-label {
+            float: left;
+            display: block;
+            padding: 9px 15px;
+            width: 120px;
+            font-weight: 400;
+            line-height: 20px;
+            text-align: left;
+        }
+    </style>
+    <div class="layui-card" id="dbcpxxCard">
+        <div class="layui-card-header" style="background-color: #506eda;color: white">等保测评信息</div>
+        <div class="layui-card-body">
+            <form class="layui-form layui-form-my" action="" lay-filter="info">
+                <input id="yyxtId" value="{{d.yyxtId}}" hidden>
+                <div class="layui-form-item layui-form-item-my">
+                    <label class="layui-form-label tip-item-required">等保测评机构：</label>
+                    <input id="fdbcpjg" type="text" lay-verify="required" autocomplete="off"
+                        class="layui-input layui-input-my" placeholder="请输入">
+                </div>
+
+                <div class="layui-form-item layui-form-item-my">
+                    <label class="layui-form-label tip-item-required">等保测评时间：</label>
+                    <input id="fdbcpTime" type="text" lay-verify="required" autocomplete="off"
+                        class="layui-input layui-input-my" placeholder="请输入">
+                </div>
+
+                <div class="layui-form-item layui-form-item-my">
+                    <label class="layui-form-label tip-item-required">等保测评得分：</label>
+                    <input id="fdbcpScore" type="text" lay-verify="required" autocomplete="off"
+                        class="layui-input layui-input-my" placeholder="请输入">
+                </div>
+                <div class="layui-form-item layui-form-item-my">
+                    <label class="layui-form-label tip-item-required">是否有密码测评：</label>
+                    <div style="display: inline-block;width: 70%">
+                        <select id="fmmcp">
+                            <option value="">请选择</option>
+                            <option value="0">是</option>
+                            <option value="1">否</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="layui-card-footer">
+        <button id="submit" class="layui-btn submit">提交</button>
+        <button id="cancel" class="layui-btn layui-btn-primary">取消</button>
+    </div>
+
+    <script>
+        layui.use(['jquery', 'form', 'laydate', 'ajax', 'xttb_detail'], function () {
+            var $ = layui.$;
+            var form = layui.form, layer = layui.layer, laydate = layui.laydate, ajax = layui.ajax,
+                xttb_detail = layui.xttb_detail;
+            $('#submit').on('click', function () {
+                $("#submit").attr({ disabled: "disabled" });
+                var fdbcpjg = $("#fdbcpjg").val();
+                var fdbcpTime = $("#fdbcpTime").val();
+                var fdbcpScore = $("#fdbcpScore").val();
+                var yyxtId = $("#yyxtId").val();
+                var fmmcp = $("#fmmcp").val();
+
+                if (fdbcpjg == null || fdbcpjg == "") {
+                    layer.msg("等保测评机构不可为空！");
+                    $("#submit").removeAttr("disabled");
+                    return;
+                }
+
+                if (fmmcp == null || fmmcp == '') {
+                    layer.msg("是否有密码测评不可为空！");
+                    $("#submit").removeAttr("disabled");
+                    return;
+                }
+
+                if (fdbcpTime == null || fdbcpTime == "") {
+                    layer.msg("等保测评时间不可为空！");
+                    $("#submit").removeAttr("disabled");
+                    return;
+                }
+
+                if (fdbcpScore == null || fdbcpScore == "") {
+                    layer.msg("等保测评得分不可为空！");
+                    $("#submit").removeAttr("disabled");
+                    return;
+                }
+
+                var data = {
+                    fdbcpjg: fdbcpjg,
+                    fdbcpTime: fdbcpTime,
+                    fdbcpScore: fdbcpScore,
+                    yyxtId: yyxtId,
+                    fmmcp: fmmcp,
+                };
+
+                ajax.httpPost({
+                    url: layui.cache.ctx + layuiApp.config.pcApi + "/xttb/t-xt-dbcp/addDbxx",
+                    dataType: "json",
+                    contentType: "application/json;charset=UTF-8",
+                    data: JSON.stringify(data),
+                    success: function (result) {
+                        if (result.status == 0 && result.data == 1) {
+                            layer.msg("添加成功");
+                            layer.closeAll();
+                            xttb_detail.initDbListInfo(false);
+                        } else {
+                            layer.msg("添加失败");
+                            $("#submit").removeAttr("disabled");
+                        }
+                    }
+                });
+            });
+
+            laydate.render({
+                elem: '#fdbcpTime',
+                type: 'datetime'
+            });
+
+            $("#cancel").click(function () {
+                layer.closeAll();
+            });
+
+            form.render();
+        });
+    </script>
+</noscript>
+
+<script type="text/html" template lay-done="layui.data.sendParams(d.params)"></script>
+
+<script>
+    layui.data.sendParams = function () {
+        layui.use(['xttb_detail'], function () {
+            var xttb_detail = layui.xttb_detail;
+            xttb_detail.init();
+        });
+    };
+</script>
